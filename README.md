@@ -1,73 +1,221 @@
-# Welcome to your Lovable project
 
-## Project info
+# 맛.zip 🍽️
 
-**URL**: https://lovable.dev/projects/f9c0fabd-fc6e-42db-97e3-adb2c4a2fbed
+> GenZ를 위한 스마트 맛집 발견 플랫폼
 
-## How can I edit this code?
+**"로컬의 진짜 맛집 vs 관광객 핫플레이스, 당신의 선택은?"**
 
-There are several ways of editing your application.
+## 🌟 프로젝트 소개
 
-**Use Lovable**
+맛.zip은 기존의 획일적인 맛집 추천을 벗어나, **로컬 주민들의 진짜 추천**과 **관광객들의 인기 스팟**을 구분하여 제공하는 혁신적인 맛집 발견 서비스입니다.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f9c0fabd-fc6e-42db-97e3-adb2c4a2fbed) and start prompting.
+### 📱 배포 URL
+🔗 **[맛.zip 바로가기](https://your-deployment-url.vercel.app)**
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🎯 핵심 기능
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 1. 3중 필터링 시스템
+- **🏠 로컬 추천**: 현지인들만 아는 진짜 숨은 맛집
+- **✈️ 관광객 추천**: SNS 핫플, 관광지 주변 인기 매장
+- **⭐ 통합 추천**: 로컬과 관광객 모두에게 사랑받는 베스트 매장
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 2. 인터랙티브 지도 + 리스트 뷰
+- 드래그 가능한 바텀시트로 직관적인 탐색
+- 현재 위치 기반 맛집 표시
+- 필터별 다른 위치의 매장 분포
 
-Follow these steps:
+### 3. 실시간 리뷰 시스템
+- 로컬 vs 관광객 리뷰 구분
+- 평점 분석 및 시각화
+- 실시간 리뷰 작성 및 필터링
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 4. 스마트 내비게이션
+- 원클릭 길찾기 기능
+- 매장별 상세 정보 (운영시간, 전화번호, 특세메뉴)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 👥 페르소나
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### 🎯 Primary Persona: "탐험러 지민" (23세, 대학생)
+- **특징**: 새로운 맛집 발견을 좋아하는 GenZ, SNS에 맛집 사진 업로드 즐김
+- **니즈**: 
+  - 인스타 감성의 예쁜 맛집도 좋지만, 진짜 맛있는 로컬 맛집도 알고 싶음
+  - 친구들과 차별화된 맛집 경험을 하고 싶음
+  - 시간과 돈을 아끼면서도 만족도 높은 식사를 원함
+
+### 🎯 Secondary Persona: "여행러버 민수" (28세, 직장인)
+- **특징**: 국내 여행을 자주 다니며, 각 지역의 특색있는 맛집을 찾아다님
+- **니즈**:
+  - 관광지에서 바가지 안 쓰고 진짜 맛있는 곳을 찾고 싶음
+  - 현지인들이 실제로 가는 곳과 관광객용 맛집을 구분하고 싶음
+  - 효율적인 여행 계획으로 시간 절약하고 싶음
+
+---
+
+## 📖 사용자 스토리
+
+### 🏠 로컬 사용자 시나리오
+```
+"새로 이사온 동네에서 현지인들이 진짜 가는 맛집을 찾고 싶어"
+
+1. 앱 실행 → 현재 위치 확인
+2. '로컬 추천' 필터 선택
+3. 지도에서 현지인 평점 4.0 이상 매장들만 표시
+4. 바텀시트에서 매장별 로컬 리뷰 확인
+5. 선택한 매장으로 길찾기 → 방문
 ```
 
-**Edit a file directly in GitHub**
+### ✈️ 관광객 사용자 시나리오
+```
+"부산 여행 중, 해운대에서 인스타 감성 맛집을 찾고 있어"
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. 해운대 지역에서 앱 실행
+2. '관광객 추천' 필터 선택  
+3. 관광객 평점 높은 포토존 맛집들 확인
+4. 리뷰에서 사진과 관광객들의 후기 확인
+5. 예약 전화 후 방문 → SNS 업로드
+```
 
-**Use GitHub Codespaces**
+### ⭐ 통합 사용자 시나리오
+```
+"친구들과 만날 곳을 찾는데, 로컬도 관광객도 모두 만족할 만한 곳을 원해"
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. 만남 장소 중심으로 앱 실행
+2. '통합 추천' 필터 선택
+3. 로컬/관광객 모두에게 사랑받는 균형잡힌 매장들 확인
+4. 평점 분석에서 두 그룹의 평가 비교
+5. 모두가 만족할 수 있는 매장 선택 → 예약 후 방문
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🛠️ 기술 스택
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Frontend
+- **React 18** - 컴포넌트 기반 UI 개발
+- **TypeScript** - 타입 안전성 보장
+- **Tailwind CSS** - 유틸리티 기반 스타일링
+- **Vite** - 빠른 개발 환경
 
-## How can I deploy this project?
+### UI/UX
+- **Shadcn/ui** - 모던한 컴포넌트 라이브러리
+- **Lucide React** - 일관된 아이콘 시스템
+- **Responsive Design** - 모바일 퍼스트 디자인
 
-Simply open [Lovable](https://lovable.dev/projects/f9c0fabd-fc6e-42db-97e3-adb2c4a2fbed) and click on Share -> Publish.
+### State Management
+- **React Hooks** - 로컬 상태 관리
+- **Context API** - 글로벌 상태 공유
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 🎨 디자인 시스템
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 컬러 팔레트
+- **Primary**: Gradient (Indigo → Purple) - 브랜드 아이덴티티
+- **Local**: Green - 로컬 추천 (🏠 친근함, 안정감)
+- **Tourist**: Blue - 관광객 추천 (✈️ 신뢰, 모험)
+- **Accent**: Orange/Red - CTA 버튼, 중요 정보
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### 타이포그래피
+- **제목**: Bold, 한글 최적화 폰트
+- **본문**: Medium weight, 가독성 우선
+- **UI**: Regular, 깔끔한 인터페이스
+
+---
+
+## 🚀 설치 및 실행
+
+```bash
+# 프로젝트 클론
+git clone https://github.com/your-username/matzip-app.git
+
+# 디렉토리 이동
+cd matzip-app
+
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
+npm run dev
+
+# 빌드
+npm run build
+```
+
+---
+
+## 📂 프로젝트 구조
+
+```
+src/
+├── components/          # 재사용 가능한 컴포넌트
+│   ├── MapView.tsx     # 지도 뷰 컴포넌트
+│   ├── RestaurantCard.tsx   # 맛집 카드
+│   ├── RestaurantDetail.tsx # 맛집 상세 정보
+│   ├── FilterTabs.tsx      # 필터 탭
+│   └── ReviewForm.tsx      # 리뷰 작성 폼
+├── data/               # 목 데이터 및 API
+│   └── mockData.ts     # 맛집 더미 데이터
+├── types/              # TypeScript 타입 정의
+│   └── index.ts        # 공통 타입 정의
+├── pages/              # 페이지 컴포넌트
+│   └── Index.tsx       # 메인 페이지
+└── utils/              # 유틸리티 함수
+```
+
+---
+
+## 🔮 향후 개발 계획
+
+### Phase 1: 기본 기능 완성 ✅
+- [x] 3중 필터링 시스템
+- [x] 지도 + 리스트 뷰
+- [x] 리뷰 시스템
+- [x] 반응형 디자인
+
+### Phase 2: 고도화 (예정)
+- [ ] 실제 지도 API 연동 (Kakao Map/Google Maps)
+- [ ] 사용자 인증 시스템
+- [ ] 실시간 데이터베이스 (Firebase/Supabase)
+- [ ] 푸시 알림 (새로운 맛집, 리뷰 등)
+
+### Phase 3: 확장 기능 (예정)
+- [ ] AI 기반 맛집 추천
+- [ ] 소셜 기능 (친구 추가, 맛집 공유)
+- [ ] 포인트/리워드 시스템
+- [ ] 매장 사장님 전용 대시보드
+
+---
+
+## 🤝 기여하기
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
+
+## 📄 라이선스
+
+MIT License - 자세한 내용은 [LICENSE](LICENSE) 파일을 참고하세요.
+
+---
+
+## 📞 연락처
+
+- **개발자**: [Your Name]
+- **이메일**: your.email@example.com
+- **GitHub**: [@your-username](https://github.com/your-username)
+
+---
+
+<div align="center">
+  <p><strong>맛.zip과 함께 진짜 맛집을 발견해보세요! 🍽️✨</strong></p>
+  
+  ⭐ 도움이 되셨다면 스타를 눌러주세요!
+</div>

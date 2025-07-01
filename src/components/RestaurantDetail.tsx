@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Restaurant, FilterType, Review } from '@/types';
 import ReviewForm from '@/components/ReviewForm';
+import { ArrowLeft, Map, List } from 'lucide-react';
 
 interface RestaurantDetailProps {
   restaurant: Restaurant;
@@ -80,25 +81,31 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         
-        <div className="absolute top-4 left-4 flex space-x-2">
+        {/* Improved Navigation Bar */}
+        <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
           <button
             onClick={onBack}
-            className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors"
+            className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors shadow-md"
           >
-            ←
+            <ArrowLeft size={20} />
           </button>
-          <button
-            onClick={handleBackToMap}
-            className="px-3 py-2 bg-white/80 backdrop-blur-sm rounded-lg text-sm font-medium text-gray-700 hover:bg-white transition-colors"
-          >
-            지도
-          </button>
-          <button
-            onClick={handleBackToList}
-            className="px-3 py-2 bg-white/80 backdrop-blur-sm rounded-lg text-sm font-medium text-gray-700 hover:bg-white transition-colors"
-          >
-            목록
-          </button>
+          
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={handleBackToMap}
+              className="flex items-center space-x-1 px-3 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 hover:bg-white transition-colors shadow-md"
+            >
+              <Map size={16} />
+              <span>지도</span>
+            </button>
+            <button
+              onClick={handleBackToList}
+              className="flex items-center space-x-1 px-3 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 hover:bg-white transition-colors shadow-md"
+            >
+              <List size={16} />
+              <span>목록</span>
+            </button>
+          </div>
         </div>
         
         <div className="absolute bottom-4 left-4 right-4 text-white">

@@ -1,7 +1,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Restaurant, FilterType } from '@/types';
-import { mockRestaurants } from '@/data/mockData';
+import { mockRestaurants, getRestaurantPositions } from '@/data/mockData';
 import RestaurantCard from '@/components/RestaurantCard';
 
 interface MapViewProps {
@@ -20,6 +20,8 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     if (filter === 'tourist') return restaurant.touristRating >= 4.0;
     return restaurant.overallRating >= 4.0;
   });
+
+  const positions = getRestaurantPositions(filter);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
@@ -44,8 +46,8 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     setIsDragging(false);
   };
 
-  // 지도의 보이는 영역 계산 - 바텀시트 높이에 따라 조정
-  const mapVisibleHeight = 100 - bottomSheetHeight;
+  // 현재 위치를 지도 중심에 고정 (바텀시트 높이와 무관하게)
+  const currentLocationTop = '45%'; // 지도 중심에 고정
 
   return (
     <div 
@@ -84,11 +86,11 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           <text x="320" y="145" textAnchor="middle" fontSize="8" fill="#16a34a">공원</text>
         </svg>
         
-        {/* Current Location Indicator - 바텀시트 높이에 따라 위치 조정 */}
+        {/* Current Location Indicator - 항상 지도 중심에 고정 */}
         <div 
-          className="absolute transform -translate-x-1/2 -translate-y-1/2"
+          className="absolute transform -translate-x-1/2 -translate-y-1/2 z-20"
           style={{
-            top: `${Math.max(25, (mapVisibleHeight * 0.5))}%`,
+            top: currentLocationTop,
             left: '50%'
           }}
         >
@@ -98,23 +100,14 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
 
         {/* Restaurant Markers */}
         {filteredRestaurants.map((restaurant, index) => {
-          const positions = [
-            { top: '20%', left: '25%' },
-            { top: '15%', left: '60%' },
-            { top: '35%', left: '80%' },
-            { top: '50%', left: '70%' },
-            { top: '45%', left: '30%' },
-            { top: '25%', left: '45%' },
-          ];
-          
           const position = positions[index % positions.length];
           
           return (
             <div
               key={restaurant.id}
-              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
+              className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group z-10"
               style={{ 
-                top: `${Math.min(parseFloat(position.top), mapVisibleHeight * 0.8)}%`, 
+                top: position.top, 
                 left: position.left 
               }}
               onClick={() => onRestaurantSelect(restaurant)}

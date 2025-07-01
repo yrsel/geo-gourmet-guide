@@ -305,7 +305,7 @@ export const mockRestaurants: Restaurant[] = [
         userName: '동네사람',
         userType: 'local',
         rating: 4.6,
-        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해해요.',
+        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해요.',
         createdAt: '2024-12-07T15:30:00Z'
       },
       {
@@ -665,7 +665,7 @@ export const mockRestaurants: Restaurant[] = [
         userName: '대구토박이',
         userType: 'local',
         rating: 4.5,
-        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해해요.',
+        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해요.',
         createdAt: '2024-12-02T15:20:00Z'
       },
       {
@@ -812,7 +812,7 @@ export const mockRestaurants: Restaurant[] = [
     latitude: 37.5011,
     longitude: 127.0396,
     images: [
-      'https://images.unsplash.com/photo-1572441713132-51c75654db73?w=400&h=300&fit=crop'
+      'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&auto=format'
     ],
     description: '야근하는 직장인들의 성지. 24시간 운영하며 새벽에도 따뜻한 김밥을 먹을 수 있는 곳입니다.',
     localRating: 4.5,
@@ -917,231 +917,182 @@ export const mockRestaurants: Restaurant[] = [
     ]
   },
   {
-    id: '9',
-    name: '인스타 감성 카페',
-    category: '카페/디저트',
-    address: '서울시 강남구 청담동 123-45',
-    phone: '02-9012-3456',
-    operatingHours: '10:00 - 22:00',
-    latitude: 37.5172,
-    longitude: 127.0473,
+    id: '11',
+    name: '숨은골목 순댓국',
+    category: '한식',
+    address: '서울시 은평구 불광동 435-2',
+    phone: '02-3456-7890',
+    operatingHours: '07:00 - 21:00',
+    latitude: 37.6102,
+    longitude: 126.9280,
     images: [
-      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop'
+      'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=400&h=300&fit=crop'
     ],
-    description: '청담동의 핫한 인스타 감성 카페. 예쁜 인테리어와 포토존이 많아 관광객들에게 인기가 높습니다.',
-    localRating: 3.2,
-    touristRating: 4.6,
-    overallRating: 3.9,
-    localReviewCount: 45,
-    touristReviewCount: 189,
-    totalReviewCount: 234,
-    priceRange: '2-3만원',
-    specialties: ['레인보우 케이크', '유니콘 라떼', '마카롱'],
+    description: '동네 주민들만 아는 숨은 맛집. 50년 전통의 진짜 순댓국을 맛볼 수 있습니다.',
+    localRating: 4.9,
+    touristRating: 3.1,
+    overallRating: 4.2,
+    localReviewCount: 124,
+    touristReviewCount: 8,
+    totalReviewCount: 132,
+    priceRange: '만원 이하',
+    specialties: ['순댓국', '머릿고기', '선지국'],
     reviews: [
       {
-        id: 'r81',
-        userId: 'u81',
-        userName: '서울여행중',
-        userType: 'tourist',
+        id: 'r111',
+        userId: 'u111',
+        userName: '은평구토박이',
+        userType: 'local',
         rating: 5.0,
-        content: '사진 찍기 너무 예쁘고 케이크도 맛있어요! 인스타에 올리기 완벽한 곳이에요.',
-        createdAt: '2024-12-13T16:45:00Z'
+        content: '어릴 때부터 다닌 곳이에요. 할머니 솜씨 그대로 유지되고 있어서 감동입니다.',
+        createdAt: '2024-12-15T08:30:00Z'
       },
-      {
-        id: 'r82',
-        userId: 'u82',
-        userName: '청담동주민',
-        userType: 'local',
-        rating: 3.0,
-        content: '예쁘긴 한데 가격이 너무 비싸요. 맛은 그냥 그래요. 관광객들만 좋아할 듯.',
-        createdAt: '2024-12-12T15:30:00Z'
-      },
-      {
-        id: 'r83',
-        userId: 'u83',
-        userName: '인스타그래머',
-        userType: 'tourist',
-        rating: 4.8,
-        content: '포토존이 정말 많아서 사진 찍기 좋아요! 유니콘 라떼 완전 예뻐요.',
-        createdAt: '2024-12-11T14:20:00Z'
-      },
-      {
-        id: 'r84',
-        userId: 'u84',
-        userName: '현지인',
-        userType: 'local',
-        rating: 2.8,
-        content: '한 번 가볼 만하긴 하지만 재방문 의사는 없어요. 너무 비싸고 시끄러워요.',
-        createdAt: '2024-12-10T13:15:00Z'
-      },
-      {
-        id: 'r85',
-        userId: 'u85',
-        userName: '관광객H',
-        userType: 'tourist',
-        rating: 4.7,
-        content: '청담동 여행 와서 꼭 가야 할 곳! 분위기도 좋고 디저트도 맛있어요.',
-        createdAt: '2024-12-09T17:40:00Z'
-      },
-      {
-        id: 'r86',
-        userId: 'u86',
-        userName: '동네사람',
-        userType: 'local',
-        rating: 3.5,
-        content: '예쁘긴 한데 관광객들이 너무 많아서 시끄러워요. 조용히 커피 마시기는 어려워요.',
-        createdAt: '2024-12-08T12:50:00Z'
-      },
-      {
-        id: 'r87',
-        userId: 'u87',
-        userName: '카페투어',
-        userType: 'tourist',
-        rating: 4.5,
-        content: '서울 카페 투어 중에 들렸는데 정말 예뻐요! 마카롱도 맛있고.',
-        createdAt: '2024-12-07T16:30:00Z'
-      },
-      {
-        id: 'r88',
-        userId: 'u88',
-        userName: '청담토박이',
-        userType: 'local',
-        rating: 3.2,
-        content: '동네에 생긴 지 얼마 안 됐는데 관광객들이 정말 많이 와요. 좀 시끄러워요.',
-        createdAt: '2024-12-06T11:20:00Z'
-      },
-      {
-        id: 'r89',
-        userId: 'u89',
-        userName: '사진작가',
-        userType: 'tourist',
-        rating: 4.6,
-        content: '사진 찍기에는 정말 좋은 곳이에요. 조명도 좋고 배경도 예뻐요.',
-        createdAt: '2024-12-05T15:10:00Z'
-      },
-      {
-        id: 'r90',
-        userId: 'u90',
-        userName: '카페애호가',
-        userType: 'local',
-        rating: 3.0,
-        content: '커피 맛은 별로인데 인테리어만 좋아요. 한 번 가보는 정도로만 추천.',
-        createdAt: '2024-12-04T14:40:00Z'
-      }
     ]
   },
   {
-    id: '10',
-    name: '한복 체험 카페',
-    category: '카페/디저트',
-    address: '서울시 종로구 인사동 567-8',
-    phone: '02-0123-4567',
-    operatingHours: '09:00 - 21:00',
-    latitude: 37.5714,
-    longitude: 126.9858,
+    id: '12',
+    name: '대학로 치킨집',
+    category: '치킨',
+    address: '서울시 종로구 대학로 123',
+    phone: '02-4567-8901',
+    operatingHours: '17:00 - 02:00',
+    latitude: 37.5829,
+    longitude: 127.0021,
     images: [
-      'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop'
+      'https://images.unsplash.com/photo-1562967914-608f82629710?w=400&h=300&fit=crop'
     ],
-    description: '한복을 입고 전통차를 마실 수 있는 특별한 카페. 외국인 관광객들에게 특히 인기가 높습니다.',
-    localRating: 3.5,
-    touristRating: 4.8,
+    description: '대학생들의 단골집. 저렴한 가격에 푸짐한 양의 치킨을 즐길 수 있습니다.',
+    localRating: 4.6,
+    touristRating: 3.4,
     overallRating: 4.1,
-    localReviewCount: 67,
-    touristReviewCount: 234,
-    totalReviewCount: 301,
+    localReviewCount: 89,
+    touristReviewCount: 12,
+    totalReviewCount: 101,
     priceRange: '2-3만원',
-    specialties: ['전통차', '한과', '떡'],
+    specialties: ['양념치킨', '후라이드', '치킨무'],
     reviews: [
       {
-        id: 'r91',
-        userId: 'u91',
-        userName: 'TokyoTraveler',
+        id: 'r121',
+        userId: 'u121',
+        userName: '대학생김민수',
+        userType: 'local',
+        rating: 4.8,
+        content: '가성비 최고! 양도 많고 맛도 좋아요. 친구들과 자주 와요.',
+        createdAt: '2024-12-14T20:30:00Z'
+      },
+    ]
+  },
+  {
+    id: '13',
+    name: '명동 한정식',
+    category: '한식',
+    address: '서울시 중구 명동2가 54-2',
+    phone: '02-5678-9012',
+    operatingHours: '11:30 - 21:30',
+    latitude: 37.5636,  
+    longitude: 126.9834,
+    images: [
+      'https://images.unsplash.com/photo-1580476262798-bddd9f4b7369?w=400&h=300&fit=crop'
+    ],
+    description: '명동 중심가에 위치한 고급 한정식당. 외국인 관광객들에게 인기가 높습니다.',
+    localRating: 3.2,
+    touristRating: 4.8,
+    overallRating: 4.0,
+    localReviewCount: 23,
+    touristReviewCount: 156,
+    totalReviewCount: 179,
+    priceRange: '5만원 이상',
+    specialties: ['궁중한정식', '비빔밥', '불고기'],
+    reviews: [
+      {
+        id: 'r131',
+        userId: 'u131',
+        userName: 'JohnFromUSA',
         userType: 'tourist',
         rating: 5.0,
-        content: 'Amazing experience! Wearing hanbok and drinking traditional tea was so special. Perfect for photos!',
-        createdAt: '2024-12-12T14:20:00Z'
+        content: 'Amazing Korean traditional food! Perfect for tourists who want to experience authentic Korean cuisine.',
+        createdAt: '2024-12-13T14:20:00Z'
       },
+    ]
+  },
+  {
+    id: '14',
+    name: '강남 BBQ',
+    category: '고기구이',
+    address: '서울시 강남구 역삼동 789-10',
+    phone: '02-6789-0123',
+    operatingHours: '17:00 - 24:00',
+    latitude: 37.4979,
+    longitude: 127.0276,
+    images: [
+      'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=400&h=300&fit=crop'
+    ],
+    description: '강남 스타일의 고급 BBQ 레스토랑. 관광객들이 한국의 고급 문화를 체험할 수 있는 곳입니다.',
+    localRating: 3.5,
+    touristRating: 4.7,
+    overallRating: 4.1,
+    localReviewCount: 34,
+    touristReviewCount: 98,
+    totalReviewCount: 132,
+    priceRange: '5만원 이상',
+    specialties: ['프리미엄 한우', '갈비', '삼겹살'],
+    reviews: [
       {
-        id: 'r92',
-        userId: 'u92',
-        userName: '인사동주민',
-        userType: 'local',
-        rating: 3.2,
-        content: '관광객들이 너무 많아서 시끄러워요. 전통차 맛은 괜찮은데 분위기가 아쉬워요.',
-        createdAt: '2024-12-11T13:45:00Z'
-      },
-      {
-        id: 'r93',
-        userId: 'u93',
-        userName: 'KoreanCultureLover',
+        id: 'r141',
+        userId: 'u141',
+        userName: 'TokyoTraveler',
         userType: 'tourist',
         rating: 4.9,
-        content: 'Perfect place to experience Korean traditional culture! The hanbok is beautiful and tea is delicious.',
-        createdAt: '2024-12-10T15:30:00Z'
+        content: 'Expensive but worth it! Great atmosphere and premium Korean beef. Perfect for special occasions.',
+        createdAt: '2024-12-12T19:45:00Z'
       },
-      {
-        id: 'r94',
-        userId: 'u94',
-        userName: '전통차애호가',
-        userType: 'local',
-        rating: 3.8,
-        content: '전통차는 정말 맛있어요. 하지만 관광객들 때문에 조용히 차 마시기는 어려워요.',
-        createdAt: '2024-12-09T12:20:00Z'
-      },
-      {
-        id: 'r95',
-        userId: 'u95',
-        userName: 'EuropeanTourist',
-        userType: 'tourist',
-        rating: 4.7,
-        content: 'Wonderful cultural experience! The staff helped us wear hanbok properly. Highly recommended!',
-        createdAt: '2024-12-08T16:10:00Z'
-      },
-      {
-        id: 'r96',
-        userId: 'u96',
-        userName: '종로구민',
-        userType: 'local',
-        rating: 3.0,
-        content: '한복 체험은 좋은 아이디어인데 너무 상업적인 느낌이에요. 전통의 깊이가 없어요.',
-        createdAt: '2024-12-07T11:15:00Z'
-      },
-      {
-        id: 'r97',
-        userId: 'u97',
-        userName: 'AmericanVisitor',
-        userType: 'tourist',
-        rating: 4.8,
-        content: 'Such a unique experience! The hanbok was gorgeous and the traditional sweets were amazing.',
-        createdAt: '2024-12-06T14:50:00Z'
-      },
-      {
-        id: 'r98',
-        userId: 'u98',
-        userName: '한복매니아',
-        userType: 'local',
-        rating: 4.0,
-        content: '한복 종류가 다양해서 좋아요. 다만 외국인 관광객들이 많아서 한국 사람은 좀 어색해요.',
-        createdAt: '2024-12-05T10:30:00Z'
-      },
-      {
-        id: 'r99',
-        userId: 'u99',
-        userName: 'ChinaTourist',
-        userType: 'tourist',
-        rating: 4.6,
-        content: '韩服体验很棒！茶的味道也很好，拍照很漂亮。推荐给想体验韩国传统文化的朋友们。',
-        createdAt: '2024-12-04T13:40:00Z'
-      },
-      {
-        id: 'r100',
-        userId: 'u100',
-        userName: '인사동터줏대감',
-        userType: 'local',
-        rating: 3.3,
-        content: '인사동 분위기는 좋은데 너무 관광지화된 느낌이에요. 조용한 전통 찻집을 원한다면 비추.',
-        createdAt: '2024-12-03T09:20:00Z'
-      }
     ]
   }
 ];
+
+// 필터별 위치 매핑
+export const getRestaurantPositions = (filter: 'local' | 'tourist' | 'all') => {
+  const basePositions = [
+    { top: '25%', left: '30%' },
+    { top: '20%', left: '65%' },
+    { top: '40%', left: '75%' },
+    { top: '55%', left: '65%' },
+    { top: '50%', left: '35%' },
+    { top: '30%', left: '50%' },
+    { top: '45%', left: '20%' },
+    { top: '35%', left: '80%' },
+    { top: '60%', left: '45%' },
+    { top: '25%', left: '85%' }
+  ];
+
+  // 필터별로 다른 위치 세트 반환
+  if (filter === 'local') {
+    return [
+      { top: '15%', left: '25%' },  // 로컬 맛집들은 주거지역 근처
+      { top: '35%', left: '40%' },
+      { top: '50%', left: '25%' },
+      { top: '25%', left: '60%' },
+      { top: '45%', left: '75%' },
+      { top: '60%', left: '50%' },
+      { top: '20%', left: '45%' },
+      { top: '55%', left: '30%' },
+      { top: '40%', left: '15%' },  // 숨은골목 순댓국
+      { top: '30%', left: '35%' },  // 대학로 치킨집
+    ];
+  } else if (filter === 'tourist') {
+    return [
+      { top: '35%', left: '55%' },  // 관광지 중심가
+      { top: '25%', left: '70%' },
+      { top: '45%', left: '60%' },
+      { top: '30%', left: '45%' },
+      { top: '50%', left: '65%' },
+      { top: '40%', left: '75%' },
+      { top: '20%', left: '50%' },
+      { top: '55%', left: '55%' },
+      { top: '25%', left: '40%' },  // 명동 한정식
+      { top: '45%', left: '70%' },  // 강남 BBQ
+    ];
+  } else {
+    return basePositions;
+  }
+};
