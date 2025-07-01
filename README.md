@@ -10,7 +10,7 @@
 맛.zip은 기존의 획일적인 맛집 추천을 벗어나, **로컬 주민들의 진짜 추천**과 **관광객들의 인기 스팟**을 구분하여 제공하는 혁신적인 맛집 발견 서비스입니다.
 
 ### 📱 배포 URL
-🔗 **[맛.zip 바로가기](https://lovable.dev/projects/f9c0fabd-fc6e-42db-97e3-adb2c4a2fbed)**
+🔗 **[맛.zip 바로가기](https://geo-gourmet-guide.lovable.app)**
 
 ---
 
