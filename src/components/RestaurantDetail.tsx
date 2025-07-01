@@ -7,9 +7,15 @@ interface RestaurantDetailProps {
   restaurant: Restaurant;
   filter: FilterType;
   onBack: () => void;
+  onViewModeChange?: (mode: 'map' | 'list') => void;
 }
 
-const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter, onBack }) => {
+const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ 
+  restaurant, 
+  filter, 
+  onBack,
+  onViewModeChange 
+}) => {
   const [activeTab, setActiveTab] = useState<'info' | 'reviews'>('info');
   const [reviewFilter, setReviewFilter] = useState<'all' | 'local' | 'tourist'>('all');
   const [showReviewForm, setShowReviewForm] = useState(false);
@@ -38,12 +44,28 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter,
 
   const handleNavigation = () => {
     setShowNavigation(true);
-    // 실제 구현에서는 여기서 네이버 지도나 카카오맵 API를 호출하거나
-    // 외부 네비게이션 앱으로 연결하는 로직을 구현
     setTimeout(() => {
       setShowNavigation(false);
       alert(`${restaurant.name}까지의 길찾기를 시작합니다!\n주소: ${restaurant.address}`);
     }, 1500);
+  };
+
+  const handleBackToList = () => {
+    if (onViewModeChange) {
+      onViewModeChange('list');
+    }
+  };
+
+  const handleBackToMap = () => {
+    if (onViewModeChange) {
+      onViewModeChange('map');
+    }
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const target = e.currentTarget;
+    target.src = 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&auto=format';
+    target.alt = '이미지 준비중입니다';
   };
 
   return (
@@ -54,15 +76,30 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter,
           src={restaurant.images[0]} 
           alt={restaurant.name}
           className="w-full h-64 object-cover"
+          onError={handleImageError}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
         
-        <button
-          onClick={onBack}
-          className="absolute top-4 left-4 w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors"
-        >
-          ←
-        </button>
+        <div className="absolute top-4 left-4 flex space-x-2">
+          <button
+            onClick={onBack}
+            className="w-10 h-10 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors"
+          >
+            ←
+          </button>
+          <button
+            onClick={handleBackToMap}
+            className="px-3 py-2 bg-white/80 backdrop-blur-sm rounded-lg text-sm font-medium text-gray-700 hover:bg-white transition-colors"
+          >
+            지도
+          </button>
+          <button
+            onClick={handleBackToList}
+            className="px-3 py-2 bg-white/80 backdrop-blur-sm rounded-lg text-sm font-medium text-gray-700 hover:bg-white transition-colors"
+          >
+            목록
+          </button>
+        </div>
         
         <div className="absolute bottom-4 left-4 right-4 text-white">
           <h1 className="text-2xl font-bold mb-2">{restaurant.name}</h1>
@@ -262,6 +299,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter,
                           src={image} 
                           alt={`리뷰 이미지 ${index + 1}`}
                           className="w-16 h-16 object-cover rounded-lg"
+                          onError={handleImageError}
                         />
                       ))}
                     </div>

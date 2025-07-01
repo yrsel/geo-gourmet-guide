@@ -10,7 +10,7 @@ interface MapViewProps {
 }
 
 const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
-  const [bottomSheetHeight, setBottomSheetHeight] = useState(52); // percentage
+  const [bottomSheetHeight, setBottomSheetHeight] = useState(52);
   const [isDragging, setIsDragging] = useState(false);
   const startY = useRef(0);
   const startHeight = useRef(0);
@@ -35,7 +35,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     const deltaPercentage = (deltaY / viewportHeight) * 100;
     
     let newHeight = startHeight.current + deltaPercentage;
-    newHeight = Math.max(20, Math.min(80, newHeight)); // 20% to 80%
+    newHeight = Math.max(20, Math.min(80, newHeight));
     
     setBottomSheetHeight(newHeight);
   };
@@ -43,6 +43,9 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
   const handleMouseUp = () => {
     setIsDragging(false);
   };
+
+  // 지도의 보이는 영역 계산 - 바텀시트 높이에 따라 조정
+  const mapVisibleHeight = 100 - bottomSheetHeight;
 
   return (
     <div 
@@ -81,8 +84,14 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           <text x="320" y="145" textAnchor="middle" fontSize="8" fill="#16a34a">공원</text>
         </svg>
         
-        {/* Current Location Indicator */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        {/* Current Location Indicator - 바텀시트 높이에 따라 위치 조정 */}
+        <div 
+          className="absolute transform -translate-x-1/2 -translate-y-1/2"
+          style={{
+            top: `${Math.max(25, (mapVisibleHeight * 0.5))}%`,
+            left: '50%'
+          }}
+        >
           <div className="w-4 h-4 bg-blue-500 rounded-full border-2 border-white shadow-lg animate-pulse"></div>
           <div className="absolute -inset-2 bg-blue-300 rounded-full animate-ping opacity-20"></div>
         </div>
@@ -90,12 +99,12 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
         {/* Restaurant Markers */}
         {filteredRestaurants.map((restaurant, index) => {
           const positions = [
-            { top: '30%', left: '25%' },
-            { top: '20%', left: '60%' },
-            { top: '45%', left: '80%' },
-            { top: '70%', left: '70%' },
-            { top: '75%', left: '30%' },
-            { top: '35%', left: '45%' },
+            { top: '20%', left: '25%' },
+            { top: '15%', left: '60%' },
+            { top: '35%', left: '80%' },
+            { top: '50%', left: '70%' },
+            { top: '45%', left: '30%' },
+            { top: '25%', left: '45%' },
           ];
           
           const position = positions[index % positions.length];
@@ -104,7 +113,10 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
             <div
               key={restaurant.id}
               className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer group"
-              style={{ top: position.top, left: position.left }}
+              style={{ 
+                top: `${Math.min(parseFloat(position.top), mapVisibleHeight * 0.8)}%`, 
+                left: position.left 
+              }}
               onClick={() => onRestaurantSelect(restaurant)}
             >
               <div className="relative">

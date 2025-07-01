@@ -1,4 +1,3 @@
-
 import { Restaurant } from '@/types';
 
 export const mockRestaurants: Restaurant[] = [
@@ -17,7 +16,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '3대째 이어져 내려오는 전통 한식당으로, 지역 주민들이 사랑하는 숨은 맛집입니다. 정성스런 손맛과 푸근한 분위기가 일품입니다.',
     localRating: 4.7,
-    touristRating: 3.8, // 로컬이 더 높음
+    touristRating: 3.8,
     overallRating: 4.5,
     localReviewCount: 89,
     touristReviewCount: 34,
@@ -43,6 +42,78 @@ export const mockRestaurants: Restaurant[] = [
         rating: 3.5,
         content: '인사동 구경하다가 발견한 곳인데 현지인들이 많이 와서 더 맛있게 느껴졌어요. 하지만 조금 짜요.',
         createdAt: '2024-12-14T15:45:00Z'
+      },
+      {
+        id: 'r3',
+        userId: 'u3',
+        userName: '박영희',
+        userType: 'local',
+        rating: 4.8,
+        content: '30년 넘게 다니고 있는 단골집이에요. 할머니께서 정말 음식을 정성스럽게 해주세요.',
+        createdAt: '2024-12-13T12:20:00Z'
+      },
+      {
+        id: 'r4',
+        userId: 'u4',
+        userName: '서울나그네',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '관광지 근처치고는 가격도 괜찮고 맛도 좋아요. 된장찌개가 특히 맛있었습니다.',
+        createdAt: '2024-12-12T14:30:00Z'
+      },
+      {
+        id: 'r5',
+        userId: 'u5',
+        userName: '동네주민',
+        userType: 'local',
+        rating: 4.5,
+        content: '집 근처라 자주 가는데 항상 맛있어요. 밑반찬도 정갈하고 좋습니다.',
+        createdAt: '2024-12-11T18:15:00Z'
+      },
+      {
+        id: 'r6',
+        userId: 'u6',
+        userName: '맛집탐방러',
+        userType: 'tourist',
+        rating: 3.8,
+        content: 'SNS에서 보고 갔는데 생각보다 평범했어요. 그래도 현지 분위기는 좋았습니다.',
+        createdAt: '2024-12-10T16:45:00Z'
+      },
+      {
+        id: 'r7',
+        userId: 'u7',
+        userName: '김철수',
+        userType: 'local',
+        rating: 5.0,
+        content: '어릴 때부터 할머니 손에 키워진 맛이에요. 진짜 집밥 같은 느낌!',
+        createdAt: '2024-12-09T11:30:00Z'
+      },
+      {
+        id: 'r8',
+        userId: 'u8',
+        userName: '여행자A',
+        userType: 'tourist',
+        rating: 4.2,
+        content: '한국 전통 음식을 제대로 맛볼 수 있어서 좋았어요. 양도 푸짐하고.',
+        createdAt: '2024-12-08T13:20:00Z'
+      },
+      {
+        id: 'r9',
+        userId: 'u9',
+        userName: '인사동토박이',
+        userType: 'local',
+        rating: 4.9,
+        content: '인사동에서 이런 가격에 이런 맛은 정말 드물어요. 계속 유지해주세요!',
+        createdAt: '2024-12-07T19:10:00Z'
+      },
+      {
+        id: 'r10',
+        userId: 'u10',
+        userName: '맛집러버',
+        userType: 'tourist',
+        rating: 3.5,
+        content: '괜찮은 편이지만 특별히 인상깊지는 않았어요. 그래도 깔끔했습니다.',
+        createdAt: '2024-12-06T15:50:00Z'
       }
     ]
   },
@@ -70,8 +141,8 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['광어회', '우럭회', '매운탕'],
     reviews: [
       {
-        id: 'r4',
-        userId: 'u4',
+        id: 'r11',
+        userId: 'u11',
         userName: '박지혜',
         userType: 'local',
         rating: 5.0,
@@ -79,13 +150,85 @@ export const mockRestaurants: Restaurant[] = [
         createdAt: '2024-12-13T19:20:00Z'
       },
       {
-        id: 'r5',
-        userId: 'u5',
+        id: 'r12',
+        userId: 'u12',
         userName: '최유진',
         userType: 'tourist',
         rating: 4.5,
         content: '해운대 여행 중에 들렸는데 회가 정말 신선하고 맛있었어요. 바다 뷰도 좋고!',
         createdAt: '2024-12-12T20:15:00Z'
+      },
+      {
+        id: 'r13',
+        userId: 'u13',
+        userName: '부산토박이',
+        userType: 'local',
+        rating: 4.8,
+        content: '20년 넘게 다니는 단골집이에요. 사장님이 직접 잡아오는 생선이라 항상 신선해요.',
+        createdAt: '2024-12-11T18:30:00Z'
+      },
+      {
+        id: 'r14',
+        userId: 'u14',
+        userName: '서울관광객',
+        userType: 'tourist',
+        rating: 4.3,
+        content: '부산 와서 먹은 회 중에 가장 맛있었어요. 매운탕도 시원하고 좋았습니다.',
+        createdAt: '2024-12-10T21:45:00Z'
+      },
+      {
+        id: 'r15',
+        userId: 'u15',
+        userName: '해운대주민',
+        userType: 'local',
+        rating: 4.7,
+        content: '집 앞바다에서 잡은 생선이라 그런지 정말 다르네요. 매운탕 국물이 끝내줘요.',
+        createdAt: '2024-12-09T17:20:00Z'
+      },
+      {
+        id: 'r16',
+        userId: 'u16',
+        userName: '회덕후',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '전국 회집 많이 다녀봤는데 여기가 탑3 안에 들어요. 완전 추천!',
+        createdAt: '2024-12-08T19:30:00Z'
+      },
+      {
+        id: 'r17',
+        userId: 'u17',
+        userName: '바다사랑',
+        userType: 'local',
+        rating: 4.9,
+        content: '새벽에 잡아온 생선이라 정말 싱싱해요. 가격도 관광지치고 합리적이고.',
+        createdAt: '2024-12-07T20:10:00Z'
+      },
+      {
+        id: 'r18',
+        userId: 'u18',
+        userName: '여행중',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '부산 여행 필수코스! 회도 맛있고 바다 보면서 먹으니까 더 맛있네요.',
+        createdAt: '2024-12-06T18:45:00Z'
+      },
+      {
+        id: 'r19',
+        userId: 'u19',
+        userName: '낚시꾼',
+        userType: 'local',
+        rating: 4.8,
+        content: '사장님이 직접 낚시하셔서 가져오는 거라 믿고 먹을 수 있어요. 진짜 신선해요.',
+        createdAt: '2024-12-05T16:20:00Z'
+      },
+      {
+        id: 'r20',
+        userId: 'u20',
+        userName: '맛집순례자',
+        userType: 'tourist',
+        rating: 4.4,
+        content: '예약하고 가는 게 좋을 것 같아요. 사람이 많아서 기다렸지만 그만한 값어치 있었습니다.',
+        createdAt: '2024-12-04T19:55:00Z'
       }
     ]
   },
@@ -103,7 +246,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '분당 골목 안 숨어있는 작은 피자집. 수제 도우와 신선한 재료로 만든 정통 이탈리안 피자를 맛볼 수 있습니다.',
     localRating: 4.8,
-    touristRating: 3.9, // 로컬이 더 높음
+    touristRating: 3.9,
     overallRating: 4.6,
     localReviewCount: 67,
     touristReviewCount: 23,
@@ -112,13 +255,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['마르게리타', '페퍼로니', '트러플 피자'],
     reviews: [
       {
-        id: 'r6',
-        userId: 'u6',
+        id: 'r21',
+        userId: 'u21',
         userName: '최준호',
         userType: 'local',
         rating: 5.0,
         content: '진짜 맛있어요! 도우가 쫄깃하고 치즈도 진짜 좋은 걸 쓰시나 봐요. 분당에서는 여기가 최고!',
         createdAt: '2024-12-12T20:15:00Z'
+      },
+      {
+        id: 'r22',
+        userId: 'u22',
+        userName: '분당주민',
+        userType: 'local',
+        rating: 4.7,
+        content: '집 근처 숨은 맛집이에요. 사장님이 이탈리아에서 배우신 분이라 정말 맛있어요.',
+        createdAt: '2024-12-11T19:30:00Z'
+      },
+      {
+        id: 'r23',
+        userId: 'u23',
+        userName: '피자러버',
+        userType: 'tourist',
+        rating: 4.2,
+        content: '분당 놀러 왔다가 우연히 발견한 곳인데 생각보다 맛있었어요. 도우가 정말 쫄깃해요.',
+        createdAt: '2024-12-10T18:45:00Z'
+      },
+      {
+        id: 'r24',
+        userId: 'u24',
+        userName: '정자동거주',
+        userType: 'local',
+        rating: 4.9,
+        content: '이탈리아 현지에서 먹은 피자랑 똑같은 맛이에요. 진짜 정통 이탈리안 피자입니다.',
+        createdAt: '2024-12-09T17:20:00Z'
+      },
+      {
+        id: 'r25',
+        userId: 'u25',
+        userName: '맛집탐험가',
+        userType: 'tourist',
+        rating: 3.8,
+        content: '골목 안에 숨어있어서 찾기 어려웠지만 맛은 좋았어요. 가격이 조금 비싼 편이네요.',
+        createdAt: '2024-12-08T16:10:00Z'
+      },
+      {
+        id: 'r26',
+        userId: 'u26',
+        userName: '동네사람',
+        userType: 'local',
+        rating: 4.6,
+        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해해요.',
+        createdAt: '2024-12-07T15:30:00Z'
+      },
+      {
+        id: 'r27',
+        userId: 'u27',
+        userName: '서울에서온',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '분당까지 와서 먹을 만한 가치가 있네요. 트러플 피자 강추합니다.',
+        createdAt: '2024-12-06T14:20:00Z'
+      },
+      {
+        id: 'r28',
+        userId: 'u28',
+        userName: '피자덕후',
+        userType: 'local',
+        rating: 4.8,
+        content: '정말 맛있어요. 재료도 신선하고 사장님도 친절하세요. 단골 될 것 같아요.',
+        createdAt: '2024-12-05T13:40:00Z'
+      },
+      {
+        id: 'r29',
+        userId: 'u29',
+        userName: '방문객',
+        userType: 'tourist',
+        rating: 3.5,
+        content: '나쁘지 않았지만 특별하지도 않았어요. 그냥 평범한 피자집 수준.',
+        createdAt: '2024-12-04T12:50:00Z'
+      },
+      {
+        id: 'r30',
+        userId: 'u30',
+        userName: '골목탐험가',
+        userType: 'local',
+        rating: 4.7,
+        content: '이런 골목 안에 이런 맛집이 있다니! 정말 놀랐어요. 완전 추천합니다.',
+        createdAt: '2024-12-03T20:15:00Z'
       }
     ]
   },
@@ -136,7 +360,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '전주 한옥마을 근처의 오래된 콩나물국밥집. 30년 전통의 깊은 맛을 자랑하며 해장하기에 딱 좋습니다.',
     localRating: 4.5,
-    touristRating: 4.7, // 관광객이 더 높음
+    touristRating: 4.7,
     overallRating: 4.6,
     localReviewCount: 234,
     touristReviewCount: 189,
@@ -145,13 +369,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['콩나물국밥', '순대국밥', '선지국밥'],
     reviews: [
       {
-        id: 'r8',
-        userId: 'u8',
+        id: 'r31',
+        userId: 'u31',
         userName: '정수민',
         userType: 'tourist',
         rating: 5.0,
         content: '전주 여행 와서 먹은 최고의 음식! 진짜 집밥 느낌이고 가격도 저렴해요.',
         createdAt: '2024-12-11T08:30:00Z'
+      },
+      {
+        id: 'r32',
+        userId: 'u32',
+        userName: '전주토박이',
+        userType: 'local',
+        rating: 4.3,
+        content: '어릴 때부터 다닌 집이에요. 변하지 않는 맛이 좋아요.',
+        createdAt: '2024-12-10T07:15:00Z'
+      },
+      {
+        id: 'r33',
+        userId: 'u33',
+        userName: '서울관광객',
+        userType: 'tourist',
+        rating: 4.8,
+        content: '한옥마을 구경하고 해장하러 왔는데 정말 맛있었어요. 진짜 전주 맛!',
+        createdAt: '2024-12-09T09:20:00Z'
+      },
+      {
+        id: 'r34',
+        userId: 'u34',
+        userName: '해장왕',
+        userType: 'local',
+        rating: 4.6,
+        content: '술 마신 다음날 여기 콩나물국밥만 먹으면 바로 살아나요. 진짜 해장 끝판왕!',
+        createdAt: '2024-12-08T06:45:00Z'
+      },
+      {
+        id: 'r35',
+        userId: 'u35',
+        userName: '여행자B',
+        userType: 'tourist',
+        rating: 4.7,
+        content: '전주 필수 코스! 국밥이 이렇게 맛있을 줄 몰랐어요. 완전 추천합니다.',
+        createdAt: '2024-12-07T08:10:00Z'
+      },
+      {
+        id: 'r36',
+        userId: 'u36',
+        userName: '국밥러버',
+        userType: 'local',
+        rating: 4.4,
+        content: '30년 전통이 느껴지는 맛이에요. 깊고 진한 국물이 정말 좋아요.',
+        createdAt: '2024-12-06T07:30:00Z'
+      },
+      {
+        id: 'r37',
+        userId: 'u37',
+        userName: '부산에서온',
+        userType: 'tourist',
+        rating: 4.9,
+        content: '부산 국밥과는 또 다른 맛이네요. 전주만의 특별한 맛이 있어요.',
+        createdAt: '2024-12-05T09:45:00Z'
+      },
+      {
+        id: 'r38',
+        userId: 'u38',
+        userName: '한옥마을주민',
+        userType: 'local',
+        rating: 4.2,
+        content: '관광객들이 많이 와서 좀 기다려야 하지만 그래도 맛있어요.',
+        createdAt: '2024-12-04T08:20:00Z'
+      },
+      {
+        id: 'r39',
+        userId: 'u39',
+        userName: '맛집순례',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '전주 와서 꼭 먹어야 할 음식 중 하나네요. 정말 맛있었습니다.',
+        createdAt: '2024-12-03T10:15:00Z'
+      },
+      {
+        id: 'r40',
+        userId: 'u40',
+        userName: '전주사람',
+        userType: 'local',
+        rating: 4.5,
+        content: '우리 동네 맛집이에요. 할머니 할아버지들이 많이 오시는 진짜 맛집.',
+        createdAt: '2024-12-02T07:50:00Z'
       }
     ]
   },
@@ -178,13 +483,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['흑돼지 삼겹살', '갈비', '목살'],
     reviews: [
       {
-        id: 'r10',
-        userId: 'u10',
+        id: 'r41',
+        userId: 'u41',
         userName: '강민아',
         userType: 'local',
         rating: 5.0,
         content: '제주도에서 태어나 자란 저도 여기만큼 맛있는 흑돼지는 처음이에요. 정말 추천!',
         createdAt: '2024-12-10T21:00:00Z'
+      },
+      {
+        id: 'r42',
+        userId: 'u42',
+        userName: '제주토박이',
+        userType: 'local',
+        rating: 4.8,
+        content: '직접 기른 흑돼지라서 그런지 정말 다르네요. 냄새도 안 나고 맛도 최고예요.',
+        createdAt: '2024-12-09T20:30:00Z'
+      },
+      {
+        id: 'r43',
+        userId: 'u43',
+        userName: '서울여행객',
+        userType: 'tourist',
+        rating: 4.5,
+        content: '제주도 여행 와서 먹은 흑돼지 중에 가장 맛있었어요. 좀 비싸지만 그만한 값어치!',
+        createdAt: '2024-12-08T19:45:00Z'
+      },
+      {
+        id: 'r44',
+        userId: 'u44',
+        userName: '흑돼지마니아',
+        userType: 'local',
+        rating: 4.9,
+        content: '제주도 흑돼지 맛집 다 가봤는데 여기가 진짜 최고예요. 사장님이 직접 키우신 거라 더 맛있어요.',
+        createdAt: '2024-12-07T18:20:00Z'
+      },
+      {
+        id: 'r45',
+        userId: 'u45',
+        userName: '부산관광객',
+        userType: 'tourist',
+        rating: 4.2,
+        content: '가격은 좀 비싸지만 맛은 정말 좋았어요. 제주도 오면 꼭 먹어야 할 음식이네요.',
+        createdAt: '2024-12-06T20:10:00Z'
+      },
+      {
+        id: 'r46',
+        userId: 'u46',
+        userName: '제주도민',
+        userType: 'local',
+        rating: 4.7,
+        content: '관광객들한테 추천해주는 우리 동네 맛집이에요. 진짜 제주 흑돼지 맛을 알 수 있어요.',
+        createdAt: '2024-12-05T19:30:00Z'
+      },
+      {
+        id: 'r47',
+        userId: 'u47',
+        userName: '고기러버',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '전국 흑돼지집 다 가봤는데 여기가 탑3 안에 들어요. 정말 맛있었습니다.',
+        createdAt: '2024-12-04T21:15:00Z'
+      },
+      {
+        id: 'r48',
+        userId: 'u48',
+        userName: '현지인',
+        userType: 'local',
+        rating: 4.8,
+        content: '사장님이 정말 고기에 대한 자부심이 대단하세요. 그만큼 맛도 최고예요.',
+        createdAt: '2024-12-03T18:45:00Z'
+      },
+      {
+        id: 'r49',
+        userId: 'u49',
+        userName: '맛집탐방',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '제주도 특산품답게 정말 맛있었어요. 다음에도 꼭 다시 올 거예요.',
+        createdAt: '2024-12-02T20:30:00Z'
+      },
+      {
+        id: 'r50',
+        userId: 'u50',
+        userName: '삼겹살킹',
+        userType: 'local',
+        rating: 4.9,
+        content: '제주 흑돼지의 진짜 맛을 알 수 있는 곳이에요. 완전 강추합니다!',
+        createdAt: '2024-12-01T19:20:00Z'
       }
     ]
   },
@@ -211,17 +597,97 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['팥 붕어빵', '슈크림 붕어빵', '치즈 붕어빵'],
     reviews: [
       {
-        id: 'r12',
-        userId: 'u12',
+        id: 'r51',
+        userId: 'u51',
         userName: '윤서현',
         userType: 'tourist',
         rating: 4.5,
         content: '대구 여행 중에 우연히 발견했는데 진짜 맛있어요! 할아버지도 너무 친절하시고.',
         createdAt: '2024-12-09T18:45:00Z'
+      },
+      {
+        id: 'r52',
+        userId: 'u52',
+        userName: '대구시민',
+        userType: 'local',
+        rating: 4.2,
+        content: '어릴 때부터 먹던 추억의 맛이에요. 할아버지가 정말 정성스럽게 만들어주세요.',
+        createdAt: '2024-12-08T17:30:00Z'
+      },
+      {
+        id: 'r53',
+        userId: 'u53',
+        userName: '서울에서온',
+        userType: 'tourist',
+        rating: 4.7,
+        content: '동성로 쇼핑하다가 먹었는데 정말 맛있었어요. 팥이 정말 꽉 들어있어요.',
+        createdAt: '2024-12-07T16:20:00Z'
+      },
+      {
+        id: 'r54',
+        userId: 'u54',
+        userName: '붕어빵러버',
+        userType: 'local',
+        rating: 4.6,
+        content: '40년 전통이 느껴지는 맛이에요. 겨울에만 파시는 게 아쉬워요.',
+        createdAt: '2024-12-06T15:45:00Z'
+      },
+      {
+        id: 'r55',
+        userId: 'u55',
+        userName: '관광객C',
+        userType: 'tourist',
+        rating: 4.8,
+        content: '할아버지가 직접 만들어주시는 정성이 느껴져요. 정말 따뜻한 맛!',
+        createdAt: '2024-12-05T18:10:00Z'
+      },
+      {
+        id: 'r56',
+        userId: 'u56',
+        userName: '동성로단골',
+        userType: 'local',
+        rating: 4.3,
+        content: '겨울만 되면 꼭 찾는 곳이에요. 할아버지 건강하게 오래오래 해주세요.',
+        createdAt: '2024-12-04T16:30:00Z'
+      },
+      {
+        id: 'r57',
+        userId: 'u57',
+        userName: '간식덕후',
+        userType: 'tourist',
+        rating: 4.4,
+        content: '전국 붕어빵 다 먹어봤는데 여기가 진짜 맛있어요. 슈크림도 최고!',
+        createdAt: '2024-12-03T17:50:00Z'
+      },
+      {
+        id: 'r58',
+        userId: 'u58',
+        userName: '대구토박이',
+        userType: 'local',
+        rating: 4.5,
+        content: '우리 동네 자랑거리예요. 친구들 데려와도 항상 만족해해요.',
+        createdAt: '2024-12-02T15:20:00Z'
+      },
+      {
+        id: 'r59',
+        userId: 'u59',
+        userName: '여행중인',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '대구 여행의 또 다른 재미네요. 따뜻한 붕어빵 하나로 마음이 따뜻해져요.',
+        createdAt: '2024-12-01T16:40:00Z'
+      },
+      {
+        id: 'r60',
+        userId: 'u60',
+        userName: '추억여행자',
+        userType: 'local',
+        rating: 4.1,
+        content: '어릴 때 할아버지와 함께 먹던 그 맛 그대로예요. 정말 감사해요.',
+        createdAt: '2024-11-30T18:15:00Z'
       }
     ]
   },
-  // 로컬 추천에만 나오는 맛집들 추가
   {
     id: '7',
     name: '동네 아지매 떡볶이',
@@ -236,7 +702,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '홍대 현지 대학생들만 아는 진짜 맛집. 30년 경력의 사장님이 직접 만드는 떡볶이가 일품입니다.',
     localRating: 4.8,
-    touristRating: 3.2, // 관광객에게는 낮은 평점
+    touristRating: 3.2,
     overallRating: 4.2,
     localReviewCount: 203,
     touristReviewCount: 15,
@@ -245,13 +711,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['매운 떡볶이', '순대', '튀김'],
     reviews: [
       {
-        id: 'r13',
-        userId: 'u13',
+        id: 'r61',
+        userId: 'u61',
         userName: '홍대생김철수',
         userType: 'local',
         rating: 5.0,
         content: '4년 동안 다닌 우리 학교 최고 맛집! 아지매가 진짜 친절하시고 떡볶이도 예술이에요.',
         createdAt: '2024-12-15T18:30:00Z'
+      },
+      {
+        id: 'r62',
+        userId: 'u62',
+        userName: '홍대학생A',
+        userType: 'local',
+        rating: 4.9,
+        content: '시험 기간마다 여기서 야식 먹으면서 공부했는데 정말 맛있어요. 가격도 저렴하고!',
+        createdAt: '2024-12-14T19:20:00Z'
+      },
+      {
+        id: 'r63',
+        userId: 'u63',
+        userName: '관광객D',
+        userType: 'tourist',
+        rating: 3.0,
+        content: '홍대 구경하다가 들렸는데 그냥 평범한 떡볶이였어요. 특별하지 않네요.',
+        createdAt: '2024-12-13T20:15:00Z'
+      },
+      {
+        id: 'r64',
+        userId: 'u64',
+        userName: '대학생B',
+        userType: 'local',
+        rating: 4.7,
+        content: '아지매가 정말 학생들을 아껴주세요. 양도 많이 주시고 맛도 최고!',
+        createdAt: '2024-12-12T17:45:00Z'
+      },
+      {
+        id: 'r65',
+        userId: 'u65',
+        userName: '떡볶이마니아',
+        userType: 'local',
+        rating: 4.8,
+        content: '30년 경력이 느껴지는 진짜 맛있는 떡볶이예요. 홍대 숨은 맛집!',
+        createdAt: '2024-12-11T16:30:00Z'
+      },
+      {
+        id: 'r66',
+        userId: 'u66',
+        userName: '방문객E',
+        userType: 'tourist',
+        rating: 3.5,
+        content: '학생들이 많이 와서 시끄러웠지만 떡볶이는 나름 맛있었어요.',
+        createdAt: '2024-12-10T18:20:00Z'
+      },
+      {
+        id: 'r67',
+        userId: 'u67',
+        userName: '홍대인근주민',
+        userType: 'local',
+        rating: 4.6,
+        content: '우리 동네 학생들 사랑하는 곳이에요. 진짜 맛있고 저렴해요.',
+        createdAt: '2024-12-09T15:40:00Z'
+      },
+      {
+        id: 'r68',
+        userId: 'u68',
+        userName: '대학생C',
+        userType: 'local',
+        rating: 4.9,
+        content: '졸업하고도 가끔 생각나서 먹으러 와요. 정말 추억의 맛이에요.',
+        createdAt: '2024-12-08T19:10:00Z'
+      },
+      {
+        id: 'r69',
+        userId: 'u69',
+        userName: '서울구경',
+        userType: 'tourist',
+        rating: 2.8,
+        content: '홍대에서 이 정도 맛이면 그냥 그런 것 같아요. 큰 기대는 안 하는 게 좋을 듯.',
+        createdAt: '2024-12-07T20:30:00Z'
+      },
+      {
+        id: 'r70',
+        userId: 'u70',
+        userName: '홍대터줏대감',
+        userType: 'local',
+        rating: 4.8,
+        content: '홍대 학생들의 소울푸드! 아지매 건강하게 오래오래 해주세요.',
+        createdAt: '2024-12-06T14:20:00Z'
       }
     ]
   },
@@ -278,17 +825,97 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['참치김밥', '불고기김밥', '라면'],
     reviews: [
       {
-        id: 'r14',
-        userId: 'u14',
+        id: 'r71',
+        userId: 'u71',
         userName: '야근러박대리',
         userType: 'local',
         rating: 4.5,
         content: '새벽 2시에도 따뜻한 김밥 먹을 수 있어서 정말 고마운 곳이에요. 사장님도 친절하시고!',
         createdAt: '2024-12-14T02:15:00Z'
+      },
+      {
+        id: 'r72',
+        userId: 'u72',
+        userName: '강남직장인',
+        userType: 'local',
+        rating: 4.3,
+        content: '야근 끝나고 집에 가는 길에 항상 들르는 곳이에요. 24시간이라서 정말 좋아요.',
+        createdAt: '2024-12-13T23:45:00Z'
+      },
+      {
+        id: 'r73',
+        userId: 'u73',
+        userName: '관광객F',
+        userType: 'tourist',
+        rating: 3.2,
+        content: '강남 돌아다니다가 배고파서 들렸는데 그냥 평범한 김밥집이었어요.',
+        createdAt: '2024-12-12T21:30:00Z'
+      },
+      {
+        id: 'r74',
+        userId: 'u74',
+        userName: '새벽배달기사',
+        userType: 'local',
+        rating: 4.7,
+        content: '새벽 배달하면서 항상 들르는 곳이에요. 사장님이 정말 친절하세요.',
+        createdAt: '2024-12-11T04:20:00Z'
+      },
+      {
+        id: 'r75',
+        userId: 'u75',
+        userName: '밤샘족',
+        userType: 'local',
+        rating: 4.6,
+        content: '밤새 일하는 사람들의 오아시스! 김밥도 맛있고 따뜻해요.',
+        createdAt: '2024-12-10T03:30:00Z'
+      },
+      {
+        id: 'r76',
+        userId: 'u76',
+        userName: '여행객G',
+        userType: 'tourist',
+        rating: 3.8,
+        content: '밤늦게 배고파서 찾아간 곳인데 24시간이라서 좋았어요. 김밥도 괜찮고.',
+        createdAt: '2024-12-09T01:15:00Z'
+      },
+      {
+        id: 'r77',
+        userId: 'u77',
+        userName: 'IT개발자',
+        userType: 'local',
+        rating: 4.4,
+        content: '개발하다가 배고플 때 항상 시켜먹어요. 배달도 빨리 와서 좋아요.',
+        createdAt: '2024-12-08T22:50:00Z'
+      },
+      {
+        id: 'r78',
+        userId: 'u78',
+        userName: '간호사',
+        userType: 'local',
+        rating: 4.8,
+        content: '야근 끝나고 든든한 한 끼 먹을 수 있어서 정말 감사해요. 완전 추천!',
+        createdAt: '2024-12-07T05:40:00Z'
+      },
+      {
+        id: 'r79',
+        userId: 'u79',
+        userName: '늦은여행자',
+        userType: 'tourist',
+        rating: 3.6,
+        content: '늦은 시간에 열려있어서 다행이었어요. 맛은 평범하지만 편리해요.',
+        createdAt: '2024-12-06T00:30:00Z'
+      },
+      {
+        id: 'r80',
+        userId: 'u80',
+        userName: '택시기사',
+        userType: 'local',
+        rating: 4.5,
+        content: '새벽 운전하면서 든든한 한 끼 먹을 수 있어서 좋아요. 사장님 화이팅!',
+        createdAt: '2024-12-05T02:20:00Z'
       }
     ]
   },
-  // 관광객 추천에만 나오는 맛집들 추가
   {
     id: '9',
     name: '인스타 감성 카페',
@@ -302,7 +929,7 @@ export const mockRestaurants: Restaurant[] = [
       'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop'
     ],
     description: '청담동의 핫한 인스타 감성 카페. 예쁜 인테리어와 포토존이 많아 관광객들에게 인기가 높습니다.',
-    localRating: 3.2, // 로컬에게는 낮은 평점
+    localRating: 3.2,
     touristRating: 4.6,
     overallRating: 3.9,
     localReviewCount: 45,
@@ -312,13 +939,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['레인보우 케이크', '유니콘 라떼', '마카롱'],
     reviews: [
       {
-        id: 'r15',
-        userId: 'u15',
+        id: 'r81',
+        userId: 'u81',
         userName: '서울여행중',
         userType: 'tourist',
         rating: 5.0,
         content: '사진 찍기 너무 예쁘고 케이크도 맛있어요! 인스타에 올리기 완벽한 곳이에요.',
         createdAt: '2024-12-13T16:45:00Z'
+      },
+      {
+        id: 'r82',
+        userId: 'u82',
+        userName: '청담동주민',
+        userType: 'local',
+        rating: 3.0,
+        content: '예쁘긴 한데 가격이 너무 비싸요. 맛은 그냥 그래요. 관광객들만 좋아할 듯.',
+        createdAt: '2024-12-12T15:30:00Z'
+      },
+      {
+        id: 'r83',
+        userId: 'u83',
+        userName: '인스타그래머',
+        userType: 'tourist',
+        rating: 4.8,
+        content: '포토존이 정말 많아서 사진 찍기 좋아요! 유니콘 라떼 완전 예뻐요.',
+        createdAt: '2024-12-11T14:20:00Z'
+      },
+      {
+        id: 'r84',
+        userId: 'u84',
+        userName: '현지인',
+        userType: 'local',
+        rating: 2.8,
+        content: '한 번 가볼 만하긴 하지만 재방문 의사는 없어요. 너무 비싸고 시끄러워요.',
+        createdAt: '2024-12-10T13:15:00Z'
+      },
+      {
+        id: 'r85',
+        userId: 'u85',
+        userName: '관광객H',
+        userType: 'tourist',
+        rating: 4.7,
+        content: '청담동 여행 와서 꼭 가야 할 곳! 분위기도 좋고 디저트도 맛있어요.',
+        createdAt: '2024-12-09T17:40:00Z'
+      },
+      {
+        id: 'r86',
+        userId: 'u86',
+        userName: '동네사람',
+        userType: 'local',
+        rating: 3.5,
+        content: '예쁘긴 한데 관광객들이 너무 많아서 시끄러워요. 조용히 커피 마시기는 어려워요.',
+        createdAt: '2024-12-08T12:50:00Z'
+      },
+      {
+        id: 'r87',
+        userId: 'u87',
+        userName: '카페투어',
+        userType: 'tourist',
+        rating: 4.5,
+        content: '서울 카페 투어 중에 들렸는데 정말 예뻐요! 마카롱도 맛있고.',
+        createdAt: '2024-12-07T16:30:00Z'
+      },
+      {
+        id: 'r88',
+        userId: 'u88',
+        userName: '청담토박이',
+        userType: 'local',
+        rating: 3.2,
+        content: '동네에 생긴 지 얼마 안 됐는데 관광객들이 정말 많이 와요. 좀 시끄러워요.',
+        createdAt: '2024-12-06T11:20:00Z'
+      },
+      {
+        id: 'r89',
+        userId: 'u89',
+        userName: '사진작가',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '사진 찍기에는 정말 좋은 곳이에요. 조명도 좋고 배경도 예뻐요.',
+        createdAt: '2024-12-05T15:10:00Z'
+      },
+      {
+        id: 'r90',
+        userId: 'u90',
+        userName: '카페애호가',
+        userType: 'local',
+        rating: 3.0,
+        content: '커피 맛은 별로인데 인테리어만 좋아요. 한 번 가보는 정도로만 추천.',
+        createdAt: '2024-12-04T14:40:00Z'
       }
     ]
   },
@@ -345,13 +1053,94 @@ export const mockRestaurants: Restaurant[] = [
     specialties: ['전통차', '한과', '떡'],
     reviews: [
       {
-        id: 'r16',
-        userId: 'u16',
+        id: 'r91',
+        userId: 'u91',
         userName: 'TokyoTraveler',
         userType: 'tourist',
         rating: 5.0,
         content: 'Amazing experience! Wearing hanbok and drinking traditional tea was so special. Perfect for photos!',
         createdAt: '2024-12-12T14:20:00Z'
+      },
+      {
+        id: 'r92',
+        userId: 'u92',
+        userName: '인사동주민',
+        userType: 'local',
+        rating: 3.2,
+        content: '관광객들이 너무 많아서 시끄러워요. 전통차 맛은 괜찮은데 분위기가 아쉬워요.',
+        createdAt: '2024-12-11T13:45:00Z'
+      },
+      {
+        id: 'r93',
+        userId: 'u93',
+        userName: 'KoreanCultureLover',
+        userType: 'tourist',
+        rating: 4.9,
+        content: 'Perfect place to experience Korean traditional culture! The hanbok is beautiful and tea is delicious.',
+        createdAt: '2024-12-10T15:30:00Z'
+      },
+      {
+        id: 'r94',
+        userId: 'u94',
+        userName: '전통차애호가',
+        userType: 'local',
+        rating: 3.8,
+        content: '전통차는 정말 맛있어요. 하지만 관광객들 때문에 조용히 차 마시기는 어려워요.',
+        createdAt: '2024-12-09T12:20:00Z'
+      },
+      {
+        id: 'r95',
+        userId: 'u95',
+        userName: 'EuropeanTourist',
+        userType: 'tourist',
+        rating: 4.7,
+        content: 'Wonderful cultural experience! The staff helped us wear hanbok properly. Highly recommended!',
+        createdAt: '2024-12-08T16:10:00Z'
+      },
+      {
+        id: 'r96',
+        userId: 'u96',
+        userName: '종로구민',
+        userType: 'local',
+        rating: 3.0,
+        content: '한복 체험은 좋은 아이디어인데 너무 상업적인 느낌이에요. 전통의 깊이가 없어요.',
+        createdAt: '2024-12-07T11:15:00Z'
+      },
+      {
+        id: 'r97',
+        userId: 'u97',
+        userName: 'AmericanVisitor',
+        userType: 'tourist',
+        rating: 4.8,
+        content: 'Such a unique experience! The hanbok was gorgeous and the traditional sweets were amazing.',
+        createdAt: '2024-12-06T14:50:00Z'
+      },
+      {
+        id: 'r98',
+        userId: 'u98',
+        userName: '한복매니아',
+        userType: 'local',
+        rating: 4.0,
+        content: '한복 종류가 다양해서 좋아요. 다만 외국인 관광객들이 많아서 한국 사람은 좀 어색해요.',
+        createdAt: '2024-12-05T10:30:00Z'
+      },
+      {
+        id: 'r99',
+        userId: 'u99',
+        userName: 'ChinaTourist',
+        userType: 'tourist',
+        rating: 4.6,
+        content: '韩服体验很棒！茶的味道也很好，拍照很漂亮。推荐给想体验韩国传统文化的朋友们。',
+        createdAt: '2024-12-04T13:40:00Z'
+      },
+      {
+        id: 'r100',
+        userId: 'u100',
+        userName: '인사동터줏대감',
+        userType: 'local',
+        rating: 3.3,
+        content: '인사동 분위기는 좋은데 너무 관광지화된 느낌이에요. 조용한 전통 찻집을 원한다면 비추.',
+        createdAt: '2024-12-03T09:20:00Z'
       }
     ]
   }
