@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Restaurant, FilterType, Review } from '@/types';
+import ReviewForm from '@/components/ReviewForm';
 
 interface RestaurantDetailProps {
   restaurant: Restaurant;
@@ -11,11 +12,39 @@ interface RestaurantDetailProps {
 const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter, onBack }) => {
   const [activeTab, setActiveTab] = useState<'info' | 'reviews'>('info');
   const [reviewFilter, setReviewFilter] = useState<'all' | 'local' | 'tourist'>('all');
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviews, setReviews] = useState<Review[]>(restaurant.reviews);
+  const [showNavigation, setShowNavigation] = useState(false);
 
-  const filteredReviews = restaurant.reviews.filter(review => {
+  const filteredReviews = reviews.filter(review => {
     if (reviewFilter === 'all') return true;
     return review.userType === reviewFilter;
   }).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+  const handleReviewSubmit = (reviewData: { rating: number; content: string; userType: 'local' | 'tourist' }) => {
+    const newReview: Review = {
+      id: `r${Date.now()}`,
+      userId: `u${Date.now()}`,
+      userName: '익명 사용자',
+      userType: reviewData.userType,
+      rating: reviewData.rating,
+      content: reviewData.content,
+      createdAt: new Date().toISOString(),
+    };
+
+    setReviews([newReview, ...reviews]);
+    setShowReviewForm(false);
+  };
+
+  const handleNavigation = () => {
+    setShowNavigation(true);
+    // 실제 구현에서는 여기서 네이버 지도나 카카오맵 API를 호출하거나
+    // 외부 네비게이션 앱으로 연결하는 로직을 구현
+    setTimeout(() => {
+      setShowNavigation(false);
+      alert(`${restaurant.name}까지의 길찾기를 시작합니다!\n주소: ${restaurant.address}`);
+    }, 1500);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -93,6 +122,10 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter,
                   <span className="text-gray-500 min-w-16">운영시간</span>
                   <span>{restaurant.operatingHours}</span>
                 </div>
+                <div className="flex items-start space-x-3">
+                  <span className="text-gray-500 min-w-16">가격대</span>
+                  <span>{restaurant.priceRange}</span>
+                </div>
               </div>
             </div>
 
@@ -146,32 +179,57 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({ restaurant, filter,
             </div>
 
             {/* Navigation Button */}
-            <button className="w-full py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg font-medium hover:from-orange-600 hover:to-red-600 transition-colors">
-              길찾기
+            <button 
+              onClick={handleNavigation}
+              disabled={showNavigation}
+              className={`w-full py-3 rounded-lg font-medium transition-colors ${
+                showNavigation 
+                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                  : 'bg-gradient-to-r from-orange-500 to-red-500 text-white hover:from-orange-600 hover:to-red-600'
+              }`}
+            >
+              {showNavigation ? '길찾기 준비 중...' : '길찾기'}
             </button>
           </div>
         ) : (
           <div className="space-y-4">
-            {/* Review Filter */}
-            <div className="flex space-x-2">
-              {[
-                { key: 'all', label: '전체', count: restaurant.totalReviewCount },
-                { key: 'local', label: '로컬', count: restaurant.localReviewCount },
-                { key: 'tourist', label: '관광객', count: restaurant.touristReviewCount },
-              ].map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => setReviewFilter(item.key as any)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                    reviewFilter === item.key
-                      ? 'bg-orange-100 text-orange-700'
-                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                  }`}
-                >
-                  {item.label} ({item.count})
-                </button>
-              ))}
+            {/* Review Form Toggle */}
+            <div className="flex justify-between items-center">
+              <div className="flex space-x-2">
+                {[
+                  { key: 'all', label: '전체', count: reviews.length },
+                  { key: 'local', label: '로컬', count: reviews.filter(r => r.userType === 'local').length },
+                  { key: 'tourist', label: '관광객', count: reviews.filter(r => r.userType === 'tourist').length },
+                ].map((item) => (
+                  <button
+                    key={item.key}
+                    onClick={() => setReviewFilter(item.key as any)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                      reviewFilter === item.key
+                        ? 'bg-orange-100 text-orange-700'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {item.label} ({item.count})
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => setShowReviewForm(!showReviewForm)}
+                className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors"
+              >
+                {showReviewForm ? '취소' : '리뷰 작성'}
+              </button>
             </div>
+
+            {/* Review Form */}
+            {showReviewForm && (
+              <ReviewForm
+                onSubmit={handleReviewSubmit}
+                onCancel={() => setShowReviewForm(false)}
+              />
+            )}
 
             {/* Reviews */}
             <div className="space-y-4">

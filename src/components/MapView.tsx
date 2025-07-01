@@ -80,15 +80,15 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
       </div>
 
       {/* Bottom Sheet with Restaurant Cards */}
-      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl max-h-48 overflow-hidden">
-        <div className="p-4">
+      <div className="absolute bottom-0 left-0 right-0 bg-white rounded-t-2xl shadow-2xl max-h-52 overflow-hidden">
+        <div className="p-4 h-full">
           <div className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
           <h3 className="text-lg font-semibold mb-3">
             {filter === 'local' ? '로컬 추천 맛집' : 
              filter === 'tourist' ? '관광객 추천 맛집' : '인기 맛집'} 
             <span className="text-sm text-gray-500 ml-2">({filteredRestaurants.length}곳)</span>
           </h3>
-          <div className="flex space-x-3 overflow-x-auto pb-2">
+          <div className="flex space-x-3 overflow-x-auto pb-2 h-32">
             {filteredRestaurants.map((restaurant) => (
               <div key={restaurant.id} className="flex-shrink-0 w-72">
                 <RestaurantCard

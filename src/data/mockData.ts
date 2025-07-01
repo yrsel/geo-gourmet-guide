@@ -22,7 +22,7 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 89,
     touristReviewCount: 34,
     totalReviewCount: 123,
-    priceRange: '₩₩',
+    priceRange: '만원 이하',
     specialties: ['김치찌개', '된장찌개', '불고기'],
     reviews: [
       {
@@ -43,12 +43,21 @@ export const mockRestaurants: Restaurant[] = [
         rating: 4.0,
         content: '인사동 구경하다가 발견한 곳인데 현지인들이 많이 와서 더 맛있게 느껴졌어요.',
         createdAt: '2024-12-14T15:45:00Z'
+      },
+      {
+        id: 'r3',
+        userId: 'u3',
+        userName: '박현우',
+        userType: 'local',
+        rating: 4.5,
+        content: '어릴 때부터 다니던 곳인데 맛이 변하지 않아서 좋아요. 특히 된장찌개가 일품!',
+        createdAt: '2024-12-13T12:20:00Z'
       }
     ]
   },
   {
     id: '2',
-    name: '바다횟집',
+    name: '오션뷰 횟집',
     category: '회/해산물',
     address: '부산시 해운대구 해운대해변로 264',
     phone: '051-2345-6789',
@@ -56,8 +65,8 @@ export const mockRestaurants: Restaurant[] = [
     latitude: 35.1588,
     longitude: 129.1603,
     images: [
-      'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop'
+      'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop',
+      'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400&h=300&fit=crop'
     ],
     description: '해운대 바닷가에 위치한 신선한 회를 맛볼 수 있는 곳입니다. 매일 새벽에 직접 잡은 생선으로 만든 회가 자랑입니다.',
     localRating: 4.6,
@@ -66,17 +75,26 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 156,
     touristReviewCount: 98,
     totalReviewCount: 254,
-    priceRange: '₩₩₩',
+    priceRange: '3-5만원',
     specialties: ['광어회', '우럭회', '매운탕'],
     reviews: [
       {
-        id: 'r3',
-        userId: 'u3',
+        id: 'r4',
+        userId: 'u4',
         userName: '박지혜',
         userType: 'local',
         rating: 5.0,
         content: '부산 살면서 여기만큼 신선한 회 먹을 수 있는 곳 못 봤어요. 사장님이 직접 잡아오셔서 더 믿음이 가요.',
         createdAt: '2024-12-13T19:20:00Z'
+      },
+      {
+        id: 'r5',
+        userId: 'u5',
+        userName: '최유진',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '해운대 여행 중에 들렸는데 회가 정말 신선하고 맛있었어요. 바다 뷰도 좋고!',
+        createdAt: '2024-12-12T20:15:00Z'
       }
     ]
   },
@@ -99,17 +117,26 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 67,
     touristReviewCount: 23,
     totalReviewCount: 90,
-    priceRange: '₩₩',
+    priceRange: '2-3만원',
     specialties: ['마르게리타', '페퍼로니', '트러플 피자'],
     reviews: [
       {
-        id: 'r4',
-        userId: 'u4',
+        id: 'r6',
+        userId: 'u6',
         userName: '최준호',
         userType: 'local',
         rating: 5.0,
         content: '진짜 맛있어요! 도우가 쫄깃하고 치즈도 진짜 좋은 걸 쓰시나 봐요. 분당에서는 여기가 최고!',
         createdAt: '2024-12-12T20:15:00Z'
+      },
+      {
+        id: 'r7',
+        userId: 'u7',
+        userName: '김서연',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '분당 놀러 왔다가 우연히 발견한 곳인데 피자가 정말 맛있어요. 숨은 맛집!',
+        createdAt: '2024-12-11T18:30:00Z'
       }
     ]
   },
@@ -132,17 +159,26 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 234,
     touristReviewCount: 189,
     totalReviewCount: 423,
-    priceRange: '₩',
+    priceRange: '만원 이하',
     specialties: ['콩나물국밥', '순대국밥', '선지국밥'],
     reviews: [
       {
-        id: 'r5',
-        userId: 'u5',
+        id: 'r8',
+        userId: 'u8',
         userName: '정수민',
         userType: 'tourist',
         rating: 5.0,
         content: '전주 여행 와서 먹은 최고의 음식! 진짜 집밥 느낌이고 가격도 저렴해요.',
         createdAt: '2024-12-11T08:30:00Z'
+      },
+      {
+        id: 'r9',
+        userId: 'u9',
+        userName: '이민호',
+        userType: 'local',
+        rating: 4.5,
+        content: '어릴 때부터 할머니와 함께 다니던 곳이에요. 30년이 지나도 변하지 않는 맛!',
+        createdAt: '2024-12-10T07:45:00Z'
       }
     ]
   },
@@ -165,17 +201,26 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 112,
     touristReviewCount: 87,
     totalReviewCount: 199,
-    priceRange: '₩₩₩',
+    priceRange: '5만원 이상',
     specialties: ['흑돼지 삼겹살', '갈비', '목살'],
     reviews: [
       {
-        id: 'r6',
-        userId: 'u6',
+        id: 'r10',
+        userId: 'u10',
         userName: '강민아',
         userType: 'local',
         rating: 5.0,
         content: '제주도에서 태어나 자란 저도 여기만큼 맛있는 흑돼지는 처음이에요. 정말 추천!',
         createdAt: '2024-12-10T21:00:00Z'
+      },
+      {
+        id: 'r11',
+        userId: 'u11',
+        userName: '송지훈',
+        userType: 'tourist',
+        rating: 4.0,
+        content: '제주도 여행 중에 먹은 최고의 고기! 가격은 좀 비싸지만 그만한 가치가 있어요.',
+        createdAt: '2024-12-09T19:30:00Z'
       }
     ]
   },
@@ -198,17 +243,26 @@ export const mockRestaurants: Restaurant[] = [
     localReviewCount: 78,
     touristReviewCount: 92,
     totalReviewCount: 170,
-    priceRange: '₩',
+    priceRange: '만원 이하',
     specialties: ['팥 붕어빵', '슈크림 붕어빵', '치즈 붕어빵'],
     reviews: [
       {
-        id: 'r7',
-        userId: 'u7',
+        id: 'r12',
+        userId: 'u12',
         userName: '윤서현',
         userType: 'tourist',
         rating: 4.0,
         content: '대구 여행 중에 우연히 발견했는데 진짜 맛있어요! 할아버지도 너무 친절하시고.',
         createdAt: '2024-12-09T18:45:00Z'
+      },
+      {
+        id: 'r13',
+        userId: 'u13',
+        userName: '정태호',
+        userType: 'local',
+        rating: 5.0,
+        content: '어릴 때부터 먹던 추억의 붕어빵! 할아버지가 직접 만드시는 정성이 느껴져요.',
+        createdAt: '2024-12-08T16:20:00Z'
       }
     ]
   }

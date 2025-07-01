@@ -22,7 +22,7 @@ const Index = () => {
                 <span className="text-white font-bold text-sm">🍴</span>
               </div>
               <h1 className="text-xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                로컬맛집
+                맛집탐정
               </h1>
             </div>
             <div className="flex items-center space-x-2">
