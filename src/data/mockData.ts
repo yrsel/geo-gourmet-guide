@@ -17,7 +17,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '3대째 이어져 내려오는 전통 한식당으로, 지역 주민들이 사랑하는 숨은 맛집입니다. 정성스런 손맛과 푸근한 분위기가 일품입니다.',
     localRating: 4.7,
-    touristRating: 4.2,
+    touristRating: 3.8, // 로컬이 더 높음
     overallRating: 4.5,
     localReviewCount: 89,
     touristReviewCount: 34,
@@ -40,24 +40,15 @@ export const mockRestaurants: Restaurant[] = [
         userId: 'u2',
         userName: '이지은',
         userType: 'tourist',
-        rating: 4.0,
-        content: '인사동 구경하다가 발견한 곳인데 현지인들이 많이 와서 더 맛있게 느껴졌어요.',
+        rating: 3.5,
+        content: '인사동 구경하다가 발견한 곳인데 현지인들이 많이 와서 더 맛있게 느껴졌어요. 하지만 조금 짜요.',
         createdAt: '2024-12-14T15:45:00Z'
-      },
-      {
-        id: 'r3',
-        userId: 'u3',
-        userName: '박현우',
-        userType: 'local',
-        rating: 4.5,
-        content: '어릴 때부터 다니던 곳인데 맛이 변하지 않아서 좋아요. 특히 된장찌개가 일품!',
-        createdAt: '2024-12-13T12:20:00Z'
       }
     ]
   },
   {
     id: '2',
-    name: '오션뷰 횟집',
+    name: '부산 바다횟집',
     category: '회/해산물',
     address: '부산시 해운대구 해운대해변로 264',
     phone: '051-2345-6789',
@@ -65,8 +56,8 @@ export const mockRestaurants: Restaurant[] = [
     latitude: 35.1588,
     longitude: 129.1603,
     images: [
-      'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop',
-      'https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=400&h=300&fit=crop'
+      'https://images.unsplash.com/photo-1578849278619-e73505e9610f?w=400&h=300&fit=crop',
+      'https://images.unsplash.com/photo-1559847844-d722426d4cea?w=400&h=300&fit=crop'
     ],
     description: '해운대 바닷가에 위치한 신선한 회를 맛볼 수 있는 곳입니다. 매일 새벽에 직접 잡은 생선으로 만든 회가 자랑입니다.',
     localRating: 4.6,
@@ -92,7 +83,7 @@ export const mockRestaurants: Restaurant[] = [
         userId: 'u5',
         userName: '최유진',
         userType: 'tourist',
-        rating: 4.0,
+        rating: 4.5,
         content: '해운대 여행 중에 들렸는데 회가 정말 신선하고 맛있었어요. 바다 뷰도 좋고!',
         createdAt: '2024-12-12T20:15:00Z'
       }
@@ -112,7 +103,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '분당 골목 안 숨어있는 작은 피자집. 수제 도우와 신선한 재료로 만든 정통 이탈리안 피자를 맛볼 수 있습니다.',
     localRating: 4.8,
-    touristRating: 4.1,
+    touristRating: 3.9, // 로컬이 더 높음
     overallRating: 4.6,
     localReviewCount: 67,
     touristReviewCount: 23,
@@ -128,15 +119,6 @@ export const mockRestaurants: Restaurant[] = [
         rating: 5.0,
         content: '진짜 맛있어요! 도우가 쫄깃하고 치즈도 진짜 좋은 걸 쓰시나 봐요. 분당에서는 여기가 최고!',
         createdAt: '2024-12-12T20:15:00Z'
-      },
-      {
-        id: 'r7',
-        userId: 'u7',
-        userName: '김서연',
-        userType: 'tourist',
-        rating: 4.0,
-        content: '분당 놀러 왔다가 우연히 발견한 곳인데 피자가 정말 맛있어요. 숨은 맛집!',
-        createdAt: '2024-12-11T18:30:00Z'
       }
     ]
   },
@@ -154,7 +136,7 @@ export const mockRestaurants: Restaurant[] = [
     ],
     description: '전주 한옥마을 근처의 오래된 콩나물국밥집. 30년 전통의 깊은 맛을 자랑하며 해장하기에 딱 좋습니다.',
     localRating: 4.5,
-    touristRating: 4.7,
+    touristRating: 4.7, // 관광객이 더 높음
     overallRating: 4.6,
     localReviewCount: 234,
     touristReviewCount: 189,
@@ -170,15 +152,6 @@ export const mockRestaurants: Restaurant[] = [
         rating: 5.0,
         content: '전주 여행 와서 먹은 최고의 음식! 진짜 집밥 느낌이고 가격도 저렴해요.',
         createdAt: '2024-12-11T08:30:00Z'
-      },
-      {
-        id: 'r9',
-        userId: 'u9',
-        userName: '이민호',
-        userType: 'local',
-        rating: 4.5,
-        content: '어릴 때부터 할머니와 함께 다니던 곳이에요. 30년이 지나도 변하지 않는 맛!',
-        createdAt: '2024-12-10T07:45:00Z'
       }
     ]
   },
@@ -212,15 +185,6 @@ export const mockRestaurants: Restaurant[] = [
         rating: 5.0,
         content: '제주도에서 태어나 자란 저도 여기만큼 맛있는 흑돼지는 처음이에요. 정말 추천!',
         createdAt: '2024-12-10T21:00:00Z'
-      },
-      {
-        id: 'r11',
-        userId: 'u11',
-        userName: '송지훈',
-        userType: 'tourist',
-        rating: 4.0,
-        content: '제주도 여행 중에 먹은 최고의 고기! 가격은 좀 비싸지만 그만한 가치가 있어요.',
-        createdAt: '2024-12-09T19:30:00Z'
       }
     ]
   },
@@ -251,18 +215,143 @@ export const mockRestaurants: Restaurant[] = [
         userId: 'u12',
         userName: '윤서현',
         userType: 'tourist',
-        rating: 4.0,
+        rating: 4.5,
         content: '대구 여행 중에 우연히 발견했는데 진짜 맛있어요! 할아버지도 너무 친절하시고.',
         createdAt: '2024-12-09T18:45:00Z'
-      },
+      }
+    ]
+  },
+  // 로컬 추천에만 나오는 맛집들 추가
+  {
+    id: '7',
+    name: '동네 아지매 떡볶이',
+    category: '분식',
+    address: '서울시 마포구 홍대입구역 2번 출구',
+    phone: '02-7890-1234',
+    operatingHours: '14:00 - 23:00',
+    latitude: 37.5563,
+    longitude: 126.9234,
+    images: [
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop'
+    ],
+    description: '홍대 현지 대학생들만 아는 진짜 맛집. 30년 경력의 사장님이 직접 만드는 떡볶이가 일품입니다.',
+    localRating: 4.8,
+    touristRating: 3.2, // 관광객에게는 낮은 평점
+    overallRating: 4.2,
+    localReviewCount: 203,
+    touristReviewCount: 15,
+    totalReviewCount: 218,
+    priceRange: '만원 이하',
+    specialties: ['매운 떡볶이', '순대', '튀김'],
+    reviews: [
       {
         id: 'r13',
         userId: 'u13',
-        userName: '정태호',
+        userName: '홍대생김철수',
         userType: 'local',
         rating: 5.0,
-        content: '어릴 때부터 먹던 추억의 붕어빵! 할아버지가 직접 만드시는 정성이 느껴져요.',
-        createdAt: '2024-12-08T16:20:00Z'
+        content: '4년 동안 다닌 우리 학교 최고 맛집! 아지매가 진짜 친절하시고 떡볶이도 예술이에요.',
+        createdAt: '2024-12-15T18:30:00Z'
+      }
+    ]
+  },
+  {
+    id: '8',
+    name: '24시 김밥천국',
+    category: '분식',
+    address: '서울시 강남구 역삼동 678-9',
+    phone: '02-8901-2345',
+    operatingHours: '24시간',
+    latitude: 37.5011,
+    longitude: 127.0396,
+    images: [
+      'https://images.unsplash.com/photo-1572441713132-51c75654db73?w=400&h=300&fit=crop'
+    ],
+    description: '야근하는 직장인들의 성지. 24시간 운영하며 새벽에도 따뜻한 김밥을 먹을 수 있는 곳입니다.',
+    localRating: 4.5,
+    touristRating: 3.5,
+    overallRating: 4.1,
+    localReviewCount: 456,
+    touristReviewCount: 67,
+    totalReviewCount: 523,
+    priceRange: '만원 이하',
+    specialties: ['참치김밥', '불고기김밥', '라면'],
+    reviews: [
+      {
+        id: 'r14',
+        userId: 'u14',
+        userName: '야근러박대리',
+        userType: 'local',
+        rating: 4.5,
+        content: '새벽 2시에도 따뜻한 김밥 먹을 수 있어서 정말 고마운 곳이에요. 사장님도 친절하시고!',
+        createdAt: '2024-12-14T02:15:00Z'
+      }
+    ]
+  },
+  // 관광객 추천에만 나오는 맛집들 추가
+  {
+    id: '9',
+    name: '인스타 감성 카페',
+    category: '카페/디저트',
+    address: '서울시 강남구 청담동 123-45',
+    phone: '02-9012-3456',
+    operatingHours: '10:00 - 22:00',
+    latitude: 37.5172,
+    longitude: 127.0473,
+    images: [
+      'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=400&h=300&fit=crop'
+    ],
+    description: '청담동의 핫한 인스타 감성 카페. 예쁜 인테리어와 포토존이 많아 관광객들에게 인기가 높습니다.',
+    localRating: 3.2, // 로컬에게는 낮은 평점
+    touristRating: 4.6,
+    overallRating: 3.9,
+    localReviewCount: 45,
+    touristReviewCount: 189,
+    totalReviewCount: 234,
+    priceRange: '2-3만원',
+    specialties: ['레인보우 케이크', '유니콘 라떼', '마카롱'],
+    reviews: [
+      {
+        id: 'r15',
+        userId: 'u15',
+        userName: '서울여행중',
+        userType: 'tourist',
+        rating: 5.0,
+        content: '사진 찍기 너무 예쁘고 케이크도 맛있어요! 인스타에 올리기 완벽한 곳이에요.',
+        createdAt: '2024-12-13T16:45:00Z'
+      }
+    ]
+  },
+  {
+    id: '10',
+    name: '한복 체험 카페',
+    category: '카페/디저트',
+    address: '서울시 종로구 인사동 567-8',
+    phone: '02-0123-4567',
+    operatingHours: '09:00 - 21:00',
+    latitude: 37.5714,
+    longitude: 126.9858,
+    images: [
+      'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=300&fit=crop'
+    ],
+    description: '한복을 입고 전통차를 마실 수 있는 특별한 카페. 외국인 관광객들에게 특히 인기가 높습니다.',
+    localRating: 3.5,
+    touristRating: 4.8,
+    overallRating: 4.1,
+    localReviewCount: 67,
+    touristReviewCount: 234,
+    totalReviewCount: 301,
+    priceRange: '2-3만원',
+    specialties: ['전통차', '한과', '떡'],
+    reviews: [
+      {
+        id: 'r16',
+        userId: 'u16',
+        userName: 'TokyoTraveler',
+        userType: 'tourist',
+        rating: 5.0,
+        content: 'Amazing experience! Wearing hanbok and drinking traditional tea was so special. Perfect for photos!',
+        createdAt: '2024-12-12T14:20:00Z'
       }
     ]
   }

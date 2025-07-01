@@ -11,7 +11,7 @@ const FilterTabs: React.FC<FilterTabsProps> = ({ selectedFilter, onFilterChange 
   const tabs = [
     { key: 'local' as FilterType, label: '로컬 추천', icon: '🏠', color: 'from-green-500 to-emerald-500' },
     { key: 'tourist' as FilterType, label: '관광객 추천', icon: '✈️', color: 'from-blue-500 to-indigo-500' },
-    { key: 'all' as FilterType, label: '통합 추천', icon: '⭐', color: 'from-orange-500 to-red-500' },
+    { key: 'all' as FilterType, label: '통합 추천', icon: '⭐', color: 'from-indigo-500 to-purple-500' },
   ];
 
   return (
