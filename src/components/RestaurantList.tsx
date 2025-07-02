@@ -14,12 +14,16 @@ const RestaurantList: React.FC<RestaurantListProps> = ({ filter, onRestaurantSel
     .filter(restaurant => {
       if (filter === 'local') return restaurant.localRating >= 4.0;
       if (filter === 'tourist') return restaurant.touristRating >= 4.0;
+      if (filter === 'highRating') return restaurant.overallRating >= 4.5;
+      if (filter === 'manyReviews') return restaurant.totalReviewCount >= 50;
       return restaurant.overallRating >= 4.0;
     })
     .sort((a, b) => {
-      const aRating = filter === 'local' ? a.localRating : filter === 'tourist' ? a.touristRating : a.overallRating;
-      const bRating = filter === 'local' ? b.localRating : filter === 'tourist' ? b.touristRating : b.overallRating;
-      return bRating - aRating;
+      if (filter === 'local') return b.localRating - a.localRating;
+      if (filter === 'tourist') return b.touristRating - a.touristRating;
+      if (filter === 'highRating') return b.overallRating - a.overallRating;
+      if (filter === 'manyReviews') return b.totalReviewCount - a.totalReviewCount;
+      return b.overallRating - a.overallRating;
     });
 
   return (
@@ -27,7 +31,9 @@ const RestaurantList: React.FC<RestaurantListProps> = ({ filter, onRestaurantSel
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-bold text-gray-900">
           {filter === 'local' ? '로컬 추천 맛집' : 
-           filter === 'tourist' ? '관광객 추천 맛집' : '인기 맛집'}
+           filter === 'tourist' ? '관광객 추천 맛집' : 
+           filter === 'highRating' ? '별점 높은 맛집' :
+           filter === 'manyReviews' ? '리뷰 많은 맛집' : '인기 맛집'}
         </h2>
         <span className="text-sm text-gray-500">{filteredRestaurants.length}곳</span>
       </div>

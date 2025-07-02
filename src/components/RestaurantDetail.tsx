@@ -19,15 +19,32 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
 }) => {
   const [activeTab, setActiveTab] = useState<'info' | 'reviews'>('info');
   const [reviewFilter, setReviewFilter] = useState<'all' | 'local' | 'tourist'>('all');
+  const [reviewSort, setReviewSort] = useState<'latest' | 'rating' | 'helpful'>('latest');
   const [showReviewForm, setShowReviewForm] = useState(false);
-  const [reviews, setReviews] = useState<Review[]>(restaurant.reviews);
+  const [reviews, setReviews] = useState<Review[]>(restaurant.reviews.map(review => ({
+    ...review,
+    helpfulCount: review.helpfulCount || 0,
+    isHelpfulByUser: review.isHelpfulByUser || false
+  })));
   const [showNavigation, setShowNavigation] = useState(false);
   const [showShareDialog, setShowShareDialog] = useState(false);
 
-  const filteredReviews = reviews.filter(review => {
-    if (reviewFilter === 'all') return true;
-    return review.userType === reviewFilter;
-  }).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  const filteredAndSortedReviews = reviews
+    .filter(review => {
+      if (reviewFilter === 'all') return true;
+      return review.userType === reviewFilter;
+    })
+    .sort((a, b) => {
+      switch (reviewSort) {
+        case 'rating':
+          return b.rating - a.rating;
+        case 'helpful':
+          return (b.helpfulCount || 0) - (a.helpfulCount || 0);
+        case 'latest':
+        default:
+          return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      }
+    });
 
   const handleReviewSubmit = (reviewData: { rating: number; content: string; userType: 'local' | 'tourist'; images?: string[] }) => {
     const newReview: Review = {
@@ -39,10 +56,27 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
       content: reviewData.content,
       images: reviewData.images,
       createdAt: new Date().toISOString(),
+      helpfulCount: 0,
+      isHelpfulByUser: false,
     };
 
     setReviews([newReview, ...reviews]);
     setShowReviewForm(false);
+  };
+
+  const handleHelpfulClick = (reviewId: string) => {
+    setReviews(reviews.map(review => {
+      if (review.id === reviewId) {
+        return {
+          ...review,
+          helpfulCount: review.isHelpfulByUser 
+            ? (review.helpfulCount || 0) - 1 
+            : (review.helpfulCount || 0) + 1,
+          isHelpfulByUser: !review.isHelpfulByUser
+        };
+      }
+      return review;
+    }));
   };
 
   const handleNavigation = () => {
@@ -74,6 +108,10 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
     target.src = 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=300&fit=crop&auto=format';
     target.alt = '이미지 준비중입니다';
   };
+
+  const averageRating = reviews.length > 0 
+    ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length 
+    : 0;
 
   return (
     <div className="min-h-screen bg-white">
@@ -154,7 +192,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
               : 'text-gray-500'
           }`}
         >
-          리뷰
+          리뷰 ({reviews.length})
         </button>
       </div>
 
@@ -249,34 +287,76 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
           </div>
         ) : (
           <div className="space-y-4">
-            {/* Review Form Toggle */}
-            <div className="flex justify-between items-center">
+            {/* 리뷰 총합 정보 */}
+            <div className="bg-gray-50 rounded-lg p-4">
+              <div className="flex items-center justify-between mb-2">
+                <h3 className="text-lg font-semibold">전체 리뷰</h3>
+                <div className="flex items-center space-x-2">
+                  <span className="text-2xl font-bold text-orange-600">{averageRating.toFixed(1)}</span>
+                  <div className="flex text-yellow-400">
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <span key={star}>
+                        {star <= Math.round(averageRating) ? '★' : '☆'}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <p className="text-sm text-gray-600">총 {reviews.length}개의 리뷰</p>
+            </div>
+
+            {/* Review Filters and Sorting */}
+            <div className="flex flex-col space-y-3">
+              <div className="flex justify-between items-center">
+                <div className="flex space-x-2">
+                  {[
+                    { key: 'all', label: '전체', count: reviews.length },
+                    { key: 'local', label: '로컬', count: reviews.filter(r => r.userType === 'local').length },
+                    { key: 'tourist', label: '관광객', count: reviews.filter(r => r.userType === 'tourist').length },
+                  ].map((item) => (
+                    <button
+                      key={item.key}
+                      onClick={() => setReviewFilter(item.key as any)}
+                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
+                        reviewFilter === item.key
+                          ? 'bg-orange-100 text-orange-700'
+                          : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                      }`}
+                    >
+                      {item.label} ({item.count})
+                    </button>
+                  ))}
+                </div>
+                
+                <button
+                  onClick={() => setShowReviewForm(!showReviewForm)}
+                  className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors"
+                >
+                  {showReviewForm ? '취소' : '리뷰 작성'}
+                </button>
+              </div>
+
+              {/* 정렬 옵션 */}
               <div className="flex space-x-2">
+                <span className="text-sm text-gray-500 flex items-center">정렬:</span>
                 {[
-                  { key: 'all', label: '전체', count: reviews.length },
-                  { key: 'local', label: '로컬', count: reviews.filter(r => r.userType === 'local').length },
-                  { key: 'tourist', label: '관광객', count: reviews.filter(r => r.userType === 'tourist').length },
+                  { key: 'latest', label: '최신순' },
+                  { key: 'rating', label: '별점순' },
+                  { key: 'helpful', label: '도움순' },
                 ].map((item) => (
                   <button
                     key={item.key}
-                    onClick={() => setReviewFilter(item.key as any)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      reviewFilter === item.key
+                    onClick={() => setReviewSort(item.key as any)}
+                    className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                      reviewSort === item.key
                         ? 'bg-orange-100 text-orange-700'
-                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                        : 'text-gray-600 hover:bg-gray-100'
                     }`}
                   >
-                    {item.label} ({item.count})
+                    {item.label}
                   </button>
                 ))}
               </div>
-              
-              <button
-                onClick={() => setShowReviewForm(!showReviewForm)}
-                className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors"
-              >
-                {showReviewForm ? '취소' : '리뷰 작성'}
-              </button>
             </div>
 
             {/* Review Form */}
@@ -289,7 +369,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
 
             {/* Reviews */}
             <div className="space-y-4">
-              {filteredReviews.map((review) => (
+              {filteredAndSortedReviews.map((review) => (
                 <div key={review.id} className="border-b border-gray-100 pb-4">
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex items-center space-x-2">
@@ -326,8 +406,21 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
                   
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>{new Date(review.createdAt).toLocaleDateString()}</span>
-                    <button className="text-orange-600 hover:text-orange-700">
-                      도움이 돼요 👍
+                    <button 
+                      onClick={() => handleHelpfulClick(review.id)}
+                      className={`flex items-center space-x-1 px-2 py-1 rounded-full transition-colors ${
+                        review.isHelpfulByUser 
+                          ? 'bg-orange-100 text-orange-600' 
+                          : 'hover:bg-gray-100 text-gray-600'
+                      }`}
+                    >
+                      <span>👍</span>
+                      <span>도움돼요</span>
+                      {(review.helpfulCount || 0) > 0 && (
+                        <span className="bg-gray-200 text-gray-700 px-1.5 py-0.5 rounded-full text-xs">
+                          {review.helpfulCount}
+                        </span>
+                      )}
                     </button>
                   </div>
                 </div>

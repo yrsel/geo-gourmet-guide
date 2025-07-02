@@ -1,4 +1,26 @@
 
+export type FilterType = 'local' | 'tourist' | 'all' | 'highRating' | 'manyReviews';
+
+export interface Restaurant {
+  id: string;
+  name: string;
+  category: string;
+  address: string;
+  phone: string;
+  operatingHours: string;
+  priceRange: string;
+  description: string;
+  images: string[];
+  specialties: string[];
+  overallRating: number;
+  localRating: number;
+  touristRating: number;
+  totalReviewCount: number;
+  localReviewCount: number;
+  touristReviewCount: number;
+  reviews: Review[];
+}
+
 export interface Review {
   id: string;
   userId: string;
@@ -8,29 +30,6 @@ export interface Review {
   content: string;
   images?: string[];
   createdAt: string;
-  isHelpful?: boolean;
+  helpfulCount?: number;
+  isHelpfulByUser?: boolean;
 }
-
-export interface Restaurant {
-  id: string;
-  name: string;
-  category: string;
-  address: string;
-  phone: string;
-  operatingHours: string;
-  latitude: number;
-  longitude: number;
-  images: string[];
-  description: string;
-  localRating: number;
-  touristRating: number;
-  overallRating: number;
-  localReviewCount: number;
-  touristReviewCount: number;
-  totalReviewCount: number;
-  reviews: Review[];
-  priceRange: string;
-  specialties: string[];
-}
-
-export type FilterType = 'local' | 'tourist' | 'all';
