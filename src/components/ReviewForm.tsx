@@ -79,7 +79,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ onSubmit, onCancel }) => {
           </div>
         </div>
 
-        {/* Rating Selection */}
+        {/* Rating Selection - Fixed to show correct visual feedback */}
         <div>
           <label className="block text-sm font-medium mb-2">별점</label>
           <div className="flex space-x-1">
@@ -92,7 +92,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ onSubmit, onCancel }) => {
                   star <= rating ? 'text-yellow-400' : 'text-gray-300'
                 } hover:text-yellow-300`}
               >
-                ⭐
+                {star <= rating ? '★' : '☆'}
               </button>
             ))}
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Restaurant, FilterType, Review } from '@/types';
 import ReviewForm from '@/components/ReviewForm';
+import ShareDialog from '@/components/ShareDialog';
 import { ArrowLeft, Map, List, Share } from 'lucide-react';
 
 interface RestaurantDetailProps {
@@ -21,6 +22,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
   const [showReviewForm, setShowReviewForm] = useState(false);
   const [reviews, setReviews] = useState<Review[]>(restaurant.reviews);
   const [showNavigation, setShowNavigation] = useState(false);
+  const [showShareDialog, setShowShareDialog] = useState(false);
 
   const filteredReviews = reviews.filter(review => {
     if (reviewFilter === 'all') return true;
@@ -51,36 +53,8 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
     }, 1500);
   };
 
-  const handleShare = async () => {
-    const shareData = {
-      title: `맛.zip - ${restaurant.name}`,
-      text: `${restaurant.name} - ${restaurant.description}`,
-      url: window.location.href
-    };
-
-    if (navigator.share && navigator.canShare(shareData)) {
-      try {
-        await navigator.share(shareData);
-      } catch (error) {
-        console.log('공유가 취소되었습니다.');
-      }
-    } else {
-      // Fallback: 클립보드에 복사
-      const shareText = `${restaurant.name} - ${restaurant.description}\n${window.location.href}`;
-      try {
-        await navigator.clipboard.writeText(shareText);
-        alert('맛집 정보가 클립보드에 복사되었습니다!');
-      } catch (error) {
-        // 클립보드 API를 사용할 수 없는 경우
-        const textArea = document.createElement('textarea');
-        textArea.value = shareText;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('맛집 정보가 클립보드에 복사되었습니다!');
-      }
-    }
+  const handleShare = () => {
+    setShowShareDialog(true);
   };
 
   const handleBackToList = () => {
@@ -362,6 +336,13 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
           </div>
         )}
       </div>
+
+      {/* Share Dialog */}
+      <ShareDialog
+        isOpen={showShareDialog}
+        onClose={() => setShowShareDialog(false)}
+        restaurant={restaurant}
+      />
     </div>
   );
 };

@@ -46,14 +46,15 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     setIsDragging(false);
   };
 
-  // 현재 위치를 지도 중심에 고정 (바텀시트 높이와 무관하게)
-  const currentLocationTop = '45%'; // 지도 중심에 고정
+  // 현재 위치를 지도 중심에 고정
+  const currentLocationTop = '50%';
 
-  // 마커가 바텀시트에 가려지는지 확인하는 함수
+  // 마커가 바텀시트에 가려지는지 확인하는 함수 - 개선된 로직
   const isMarkerVisible = (positionTop: string) => {
     const topPercentage = parseFloat(positionTop.replace('%', ''));
-    const hiddenAreaStart = 100 - bottomSheetHeight;
-    return topPercentage < hiddenAreaStart;
+    const bottomSheetTopPosition = 100 - bottomSheetHeight;
+    // 여유분을 두어 마커가 완전히 가려지지 않도록 함
+    return topPercentage < (bottomSheetTopPosition - 5);
   };
 
   return (
@@ -88,9 +89,12 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           <rect x="180" y="180" width="80" height="100" fill="#f9fafb" stroke="#e5e7eb" strokeWidth="1" />
           <rect x="300" y="200" width="80" height="70" fill="#f9fafb" stroke="#e5e7eb" strokeWidth="1" />
           
-          {/* Park area */}
-          <circle cx="320" cy="140" r="30" fill="#dcfce7" stroke="#22c55e" strokeWidth="1" opacity="0.7" />
-          <text x="320" y="145" textAnchor="middle" fontSize="8" fill="#16a34a">공원</text>
+          {/* Park area - 명확한 공원 표시 */}
+          <rect x="290" y="110" width="60" height="60" fill="#dcfce7" stroke="#22c55e" strokeWidth="2" rx="10" />
+          <text x="320" y="135" textAnchor="middle" fontSize="10" fill="#16a34a" fontWeight="bold">한강공원</text>
+          <circle cx="305" cy="150" r="3" fill="#22c55e" />
+          <circle cx="320" cy="155" r="2" fill="#22c55e" />
+          <circle cx="335" cy="148" r="2.5" fill="#22c55e" />
         </svg>
         
         {/* Current Location Indicator - 항상 지도 중심에 고정 */}
@@ -147,7 +151,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
         })}
       </div>
 
-      {/* Draggable Bottom Sheet */}
+      {/* Draggable Bottom Sheet - 드래그 영역 개선 */}
       <div 
         className="absolute left-0 right-0 bg-white rounded-t-2xl shadow-2xl transition-all duration-300"
         style={{ 
@@ -158,11 +162,14 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
         }}
       >
         <div className="p-4 h-full flex flex-col">
-          {/* Drag Handle */}
+          {/* Improved Drag Handle - 더 큰 드래그 영역 */}
           <div 
-            className="w-12 h-1 bg-gray-300 rounded-full mx-auto mb-4 cursor-grab active:cursor-grabbing"
+            className="flex flex-col items-center py-2 cursor-grab active:cursor-grabbing select-none"
             onMouseDown={handleMouseDown}
-          ></div>
+          >
+            <div className="w-12 h-1 bg-gray-300 rounded-full mb-2"></div>
+            <div className="text-xs text-gray-400 font-medium">위아래로 드래그하세요</div>
+          </div>
           
           <h3 className="text-lg font-semibold mb-3 flex-shrink-0">
             {filter === 'local' ? '로컬 추천 맛집' : 
