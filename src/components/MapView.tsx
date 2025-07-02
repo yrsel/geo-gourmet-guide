@@ -49,6 +49,13 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
   // 현재 위치를 지도 중심에 고정 (바텀시트 높이와 무관하게)
   const currentLocationTop = '45%'; // 지도 중심에 고정
 
+  // 마커가 바텀시트에 가려지는지 확인하는 함수
+  const isMarkerVisible = (positionTop: string) => {
+    const topPercentage = parseFloat(positionTop.replace('%', ''));
+    const hiddenAreaStart = 100 - bottomSheetHeight;
+    return topPercentage < hiddenAreaStart;
+  };
+
   return (
     <div 
       className="relative h-[calc(100vh-140px)] overflow-hidden"
@@ -98,9 +105,12 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           <div className="absolute -inset-2 bg-blue-300 rounded-full animate-ping opacity-20"></div>
         </div>
 
-        {/* Restaurant Markers */}
+        {/* Restaurant Markers - 바텀시트에 가려지지 않을 때만 표시 */}
         {filteredRestaurants.map((restaurant, index) => {
           const position = positions[index % positions.length];
+          const visible = isMarkerVisible(position.top);
+          
+          if (!visible) return null;
           
           return (
             <div

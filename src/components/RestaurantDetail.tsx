@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { Restaurant, FilterType, Review } from '@/types';
 import ReviewForm from '@/components/ReviewForm';
-import { ArrowLeft, Map, List } from 'lucide-react';
+import { ArrowLeft, Map, List, Share } from 'lucide-react';
 
 interface RestaurantDetailProps {
   restaurant: Restaurant;
@@ -28,7 +27,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
     return review.userType === reviewFilter;
   }).sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 
-  const handleReviewSubmit = (reviewData: { rating: number; content: string; userType: 'local' | 'tourist' }) => {
+  const handleReviewSubmit = (reviewData: { rating: number; content: string; userType: 'local' | 'tourist'; images?: string[] }) => {
     const newReview: Review = {
       id: `r${Date.now()}`,
       userId: `u${Date.now()}`,
@@ -36,6 +35,7 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
       userType: reviewData.userType,
       rating: reviewData.rating,
       content: reviewData.content,
+      images: reviewData.images,
       createdAt: new Date().toISOString(),
     };
 
@@ -49,6 +49,38 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
       setShowNavigation(false);
       alert(`${restaurant.name}까지의 길찾기를 시작합니다!\n주소: ${restaurant.address}`);
     }, 1500);
+  };
+
+  const handleShare = async () => {
+    const shareData = {
+      title: `맛.zip - ${restaurant.name}`,
+      text: `${restaurant.name} - ${restaurant.description}`,
+      url: window.location.href
+    };
+
+    if (navigator.share && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        console.log('공유가 취소되었습니다.');
+      }
+    } else {
+      // Fallback: 클립보드에 복사
+      const shareText = `${restaurant.name} - ${restaurant.description}\n${window.location.href}`;
+      try {
+        await navigator.clipboard.writeText(shareText);
+        alert('맛집 정보가 클립보드에 복사되었습니다!');
+      } catch (error) {
+        // 클립보드 API를 사용할 수 없는 경우
+        const textArea = document.createElement('textarea');
+        textArea.value = shareText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('맛집 정보가 클립보드에 복사되었습니다!');
+      }
+    }
   };
 
   const handleBackToList = () => {
@@ -91,6 +123,12 @@ const RestaurantDetail: React.FC<RestaurantDetailProps> = ({
           </button>
           
           <div className="flex items-center space-x-2">
+            <button
+              onClick={handleShare}
+              className="w-10 h-10 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-gray-700 hover:bg-white transition-colors shadow-md"
+            >
+              <Share size={16} />
+            </button>
             <button
               onClick={handleBackToMap}
               className="flex items-center space-x-1 px-3 py-2 bg-white/90 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 hover:bg-white transition-colors shadow-md"
