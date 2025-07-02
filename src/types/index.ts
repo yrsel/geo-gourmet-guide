@@ -19,6 +19,8 @@ export interface Restaurant {
   localReviewCount: number;
   touristReviewCount: number;
   reviews: Review[];
+  latitude: number;
+  longitude: number;
 }
 
 export interface Review {

@@ -1,4 +1,4 @@
-import { Restaurant } from '@/types';
+import { Restaurant, FilterType } from '@/types';
 
 export const mockRestaurants: Restaurant[] = [
   {
@@ -1051,7 +1051,7 @@ export const mockRestaurants: Restaurant[] = [
 ];
 
 // 필터별 위치 매핑
-export const getRestaurantPositions = (filter: 'local' | 'tourist' | 'all') => {
+export const getRestaurantPositions = (filter: FilterType) => {
   const basePositions = [
     { top: '25%', left: '30%' },
     { top: '20%', left: '65%' },
@@ -1091,6 +1091,32 @@ export const getRestaurantPositions = (filter: 'local' | 'tourist' | 'all') => {
       { top: '55%', left: '55%' },
       { top: '25%', left: '40%' },  // 명동 한정식
       { top: '45%', left: '70%' },  // 강남 BBQ
+    ];
+  } else if (filter === 'highRating') {
+    return [
+      { top: '20%', left: '35%' },  // 별점 높은 맛집들
+      { top: '30%', left: '55%' },
+      { top: '40%', left: '25%' },
+      { top: '50%', left: '70%' },
+      { top: '25%', left: '80%' },
+      { top: '45%', left: '40%' },
+      { top: '35%', left: '60%' },
+      { top: '55%', left: '35%' },
+      { top: '30%', left: '20%' },
+      { top: '60%', left: '65%' },
+    ];
+  } else if (filter === 'manyReviews') {
+    return [
+      { top: '25%', left: '45%' },  // 리뷰 많은 맛집들
+      { top: '35%', left: '25%' },
+      { top: '45%', left: '65%' },
+      { top: '20%', left: '75%' },
+      { top: '55%', left: '40%' },
+      { top: '40%', left: '80%' },
+      { top: '30%', left: '30%' },
+      { top: '50%', left: '55%' },
+      { top: '35%', left: '15%' },
+      { top: '60%', left: '70%' },
     ];
   } else {
     return basePositions;

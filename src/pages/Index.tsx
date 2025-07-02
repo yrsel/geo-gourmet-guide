@@ -4,10 +4,10 @@ import MapView from '@/components/MapView';
 import FilterTabs from '@/components/FilterTabs';
 import RestaurantList from '@/components/RestaurantList';
 import RestaurantDetail from '@/components/RestaurantDetail';
-import { Restaurant } from '@/types';
+import { Restaurant, FilterType } from '@/types';
 
 const Index = () => {
-  const [selectedFilter, setSelectedFilter] = useState<'local' | 'tourist' | 'all'>('local');
+  const [selectedFilter, setSelectedFilter] = useState<FilterType>('local');
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [viewMode, setViewMode] = useState<'map' | 'list'>('map');
 
