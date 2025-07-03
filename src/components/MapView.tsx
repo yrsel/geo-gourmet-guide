@@ -59,7 +59,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     });
   };
 
-  const fixedBottomSheetHeight = 160; // 고정 높이 (160px)
+  const fixedBottomSheetHeight = 160;
 
   return (
     <div className="relative h-[calc(100vh-140px)] overflow-hidden">
@@ -105,12 +105,13 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
             
             {/* 한강공원 */}
             <rect x="290" y="110" width="60" height="60" fill="#dcfce7" stroke="#22c55e" strokeWidth="2" rx="10" />
-            <text x="320" y="135" textAnchor="middle" fontSize="10" fill="#16a34a" fontWeight="bold">한강공원</text>
+            <text x="320" y="130" textAnchor="middle" fontSize="8" fill="#16a34a" fontWeight="bold">한강공원</text>
+            <text x="320" y="140" textAnchor="middle" fontSize="6" fill="#16a34a">Han River Park</text>
             
-            {/* 공원 내 나무들 */}
-            <circle cx="305" cy="150" r="3" fill="#22c55e" />
-            <circle cx="320" cy="155" r="2" fill="#22c55e" />
-            <circle cx="335" cy="148" r="2.5" fill="#22c55e" />
+            {/* 공원 내 시설들 */}
+            <circle cx="305" cy="150" r="2" fill="#22c55e" />
+            <circle cx="320" cy="155" r="1.5" fill="#22c55e" />
+            <circle cx="335" cy="148" r="2" fill="#22c55e" />
           </svg>
           
           {/* 현재 위치 (지도 중심에 고정) */}
