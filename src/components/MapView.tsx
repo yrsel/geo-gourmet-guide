@@ -59,13 +59,13 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
     });
   };
 
-  const fixedBottomSheetHeight = 160;
+  const fixedBottomSheetHeight = 120;
 
   return (
     <div className="relative h-[calc(100vh-140px)] overflow-hidden">
       {/* 인터랙티브 지도 */}
       <div 
-        className="absolute inset-0 bg-gray-100 cursor-grab active:cursor-grabbing"
+        className="absolute inset-0 bg-gradient-to-br from-blue-50 to-green-50 cursor-grab active:cursor-grabbing"
         style={{ bottom: `${fixedBottomSheetHeight}px` }}
         onMouseDown={handleMapMouseDown}
         onMouseMove={handleMapMouseMove}
@@ -82,26 +82,29 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
         >
           {/* 실제 지도와 유사한 배경 */}
           <svg className="w-full h-full absolute inset-0" viewBox="0 0 400 300">
+            {/* 지도 배경 */}
+            <rect width="400" height="300" fill="#f0f8f0" />
+            
             {/* 메인 도로들 */}
-            <path d="M0 100 L400 120" stroke="#d1d5db" strokeWidth="12" />
-            <path d="M0 180 L400 160" stroke="#d1d5db" strokeWidth="10" />
-            <path d="M100 0 L120 300" stroke="#d1d5db" strokeWidth="12" />
-            <path d="M250 0 L270 300" stroke="#d1d5db" strokeWidth="10" />
-            <path d="M350 0 L330 300" stroke="#d1d5db" strokeWidth="8" />
+            <path d="M0 100 L400 120" stroke="#9ca3af" strokeWidth="8" />
+            <path d="M0 180 L400 160" stroke="#9ca3af" strokeWidth="6" />
+            <path d="M100 0 L120 300" stroke="#9ca3af" strokeWidth="8" />
+            <path d="M250 0 L270 300" stroke="#9ca3af" strokeWidth="6" />
+            <path d="M350 0 L330 300" stroke="#9ca3af" strokeWidth="5" />
             
             {/* 보조 도로들 */}
-            <path d="M0 50 L200 60" stroke="#e5e7eb" strokeWidth="6" />
-            <path d="M150 40 L400 45" stroke="#e5e7eb" strokeWidth="6" />
-            <path d="M0 220 L300 240" stroke="#e5e7eb" strokeWidth="6" />
-            <path d="M200 0 L210 200" stroke="#e5e7eb" strokeWidth="6" />
+            <path d="M0 50 L200 60" stroke="#d1d5db" strokeWidth="4" />
+            <path d="M150 40 L400 45" stroke="#d1d5db" strokeWidth="4" />
+            <path d="M0 220 L300 240" stroke="#d1d5db" strokeWidth="4" />
+            <path d="M200 0 L210 200" stroke="#d1d5db" strokeWidth="4" />
             
             {/* 건물 블록들 */}
-            <rect x="10" y="10" width="80" height="80" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
-            <rect x="130" y="20" width="60" height="70" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
-            <rect x="280" y="30" width="90" height="60" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
-            <rect x="20" y="200" width="70" height="80" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
-            <rect x="180" y="180" width="80" height="100" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
-            <rect x="300" y="200" width="80" height="70" fill="#f3f4f6" stroke="#d1d5db" strokeWidth="1" />
+            <rect x="10" y="10" width="80" height="80" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
+            <rect x="130" y="20" width="60" height="70" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
+            <rect x="280" y="30" width="90" height="60" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
+            <rect x="20" y="200" width="70" height="80" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
+            <rect x="180" y="180" width="80" height="100" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
+            <rect x="300" y="200" width="80" height="70" fill="#e5e7eb" stroke="#9ca3af" strokeWidth="1" />
             
             {/* 한강공원 */}
             <rect x="290" y="110" width="60" height="60" fill="#dcfce7" stroke="#22c55e" strokeWidth="2" rx="10" />
@@ -176,7 +179,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           height: `${fixedBottomSheetHeight}px`
         }}
       >
-        <div className="p-4 h-full flex flex-col">
+        <div className="p-3 h-full flex flex-col">
           {/* 간단한 핸들 */}
           <div className="flex justify-center mb-2">
             <div className="w-12 h-1 bg-gray-300 rounded-full"></div>
@@ -194,7 +197,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
           <div className="flex-1 overflow-hidden">
             <div className="flex space-x-3 overflow-x-auto pb-2 h-full scrollbar-hide">
               {filteredRestaurants.map((restaurant) => (
-                <div key={restaurant.id} className="flex-shrink-0 w-64">
+                <div key={restaurant.id} className="flex-shrink-0 w-48">
                   <RestaurantCard
                     restaurant={restaurant}
                     filter={filter}
