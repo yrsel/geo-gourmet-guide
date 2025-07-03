@@ -26,10 +26,19 @@ const FilterTabs: React.FC<FilterTabsProps> = ({ selectedFilter, onFilterChange 
     { key: 'tourist' as FilterType, label: '관광객 추천', icon: '✈️' },
   ];
 
+  const getBaseFilter = (): 'local' | 'all' => {
+    if (selectedFilter === 'highRating' || selectedFilter === 'manyReviews' || selectedFilter === 'tourist') {
+      return 'all';
+    }
+    return selectedFilter as 'local' | 'all';
+  };
+
   const getCurrentSortLabel = () => {
     const option = sortOptions.find(opt => opt.key === selectedFilter);
     return option ? option.label : '정렬';
   };
+
+  const baseFilter = getBaseFilter();
 
   return (
     <div className="flex items-center justify-between">
@@ -40,7 +49,7 @@ const FilterTabs: React.FC<FilterTabsProps> = ({ selectedFilter, onFilterChange 
             key={tab.key}
             onClick={() => onFilterChange(tab.key)}
             className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-              selectedFilter === tab.key
+              baseFilter === tab.key
                 ? `bg-gradient-to-r ${tab.color} text-white shadow-md`
                 : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
             }`}
@@ -54,7 +63,11 @@ const FilterTabs: React.FC<FilterTabsProps> = ({ selectedFilter, onFilterChange 
       {/* 정렬 드롭다운 */}
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="flex items-center space-x-2 px-3 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-600 hover:bg-gray-50 transition-colors">
+          <button className={`flex items-center space-x-2 px-3 py-2 border rounded-lg text-sm font-medium transition-colors ${
+            sortOptions.some(opt => opt.key === selectedFilter)
+              ? 'bg-blue-50 border-blue-200 text-blue-600'
+              : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'
+          }`}>
             <span>{getCurrentSortLabel()}</span>
             <ChevronDown className="w-4 h-4" />
           </button>
