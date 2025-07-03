@@ -1,4 +1,3 @@
-
 import React, { useState, useRef } from 'react';
 import { Restaurant, FilterType } from '@/types';
 import { mockRestaurants, getRestaurantPositions } from '@/data/mockData';
@@ -227,7 +226,7 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
         </div>
       </div>
 
-      {/* 확장된 바텀시트 */}
+      {/* 좌우 스크롤 바텀시트 */}
       <div 
         className="absolute left-0 right-0 bg-white rounded-t-3xl shadow-2xl"
         style={{ 
@@ -253,11 +252,11 @@ const MapView: React.FC<MapViewProps> = ({ filter, onRestaurantSelect }) => {
             <span className="text-sm text-gray-500 ml-2 font-normal">({filteredRestaurants.length}곳)</span>
           </h3>
           
-          {/* 확장된 카드 그리드 */}
+          {/* 좌우 스크롤 카드 리스트 */}
           <div className="flex-1 overflow-hidden">
-            <div className="grid grid-cols-2 gap-3 h-full overflow-y-auto">
-              {filteredRestaurants.slice(0, 4).map((restaurant) => (
-                <div key={restaurant.id} className="h-full">
+            <div className="flex space-x-4 h-full overflow-x-auto scrollbar-hide pb-2">
+              {filteredRestaurants.map((restaurant) => (
+                <div key={restaurant.id} className="flex-shrink-0 w-64">
                   <RestaurantCard
                     restaurant={restaurant}
                     filter={getBaseFilter()}
